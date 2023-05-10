@@ -4,6 +4,11 @@
 ## TLDR
 AWS IAM is a global service. Its used in nearly all other services to control permissions and interaction boundaries in regards to resources and services in your account. Its also required to manage users in your AWS Account or [[AWSOrganisations]]. Permissions come in the form of groups, role and policies.
 
+### Limitations 
+- 5000 IAM Users per account
+	- alternatives IAM Roles & Identity federation.
+- IAM User can be a member of up to 10 groups
+
 ### Best Practices
 - Dont use your root account for anything but account setup
 - One physical users should also be one AWS user
