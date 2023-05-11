@@ -128,7 +128,7 @@ Central service for all logs and metrics in AWS.
 - trigger [[ASG]]
 - [[SNS]]
 
-### Composite Alrams
+### Composite Alarms
 - multiple alarms combined (multi metric alaram)
 - And or OR conditions
 
