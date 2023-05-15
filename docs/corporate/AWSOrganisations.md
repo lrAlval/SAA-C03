@@ -15,7 +15,7 @@ This is a service to manage multiple accounts and big user count at a central pl
 - Central audit account
 
 ## Limitations
-- A single account can not be in two diffrent organisations
+- A single account can not be in two different organisations
 
 ## Cost Management
 - Consolidated billing makes monthly fees for some ressources, which are used by multiple accounts within the [[AWSOrganisations]], only be payed once (E.g. [[AWSShield]])

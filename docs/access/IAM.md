@@ -9,6 +9,11 @@ AWS IAM is a global service. Its used in nearly all other services to control pe
 	- alternatives IAM Roles & Identity federation.
 - IAM User can be a member of up to 10 groups
 
+### Defaults
+- two policies assigned to IAM Role 
+	- Permissions Policy
+	- Trust Policy
+
 ### Best Practices
 - Dont use your root account for anything but account setup
 - One physical users should also be one AWS user

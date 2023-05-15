@@ -5,22 +5,53 @@
 Control Tower is often used in conjunction with [[AWSOrganisations]]
 to manage and configure a multi account setup.
 
+![[Pasted image 20230515180648.png]]
+
+
 ## Benefits
 - Automate setup of [[AWSOrganisations]]
 - Automate policy management using guard rails
-- Detect policy viloations
+- Detect policy violations
 - Monitor compliance through dashboard
 - Streamline account creation in [[AWSOrganisations]]
+
+## Elements
+- Landing zone - **multi-account** env
+	- SSO/Id federation, Centralised Logging & Auditing.
+- Guard Rails - **Detect**/**Mandate** rules/standards across all accounts.
+- Account Factory - **Automates** and **Standardises** new account creation.
+- Dashboard - single page oversight of the entire env.
+
+## Landing Zone
+-[[IdentityCenter]] = SSO  multiple-accounts, Id Federation
+- Monitoring and Notifications = CloudWatch and SNS
+- built with [[AWSOrganisations]] , [[AWSConfig]], [[Cloudformation]]
+- Security OU = Log Archive & Audit Accounts ([[CloudTrail]] & Config Logs)
+- Sandbox OU = Test/less rigid security.
+- you can create other OU's and accounts.
+//TODO: add aws service catalog page
+- End User account provisioning via [[# AWS Service Catalog]]
 
 ## Guardrails
 
 ### Preventive Guardrail
 - uses [[AWSOrganisations]] SCP
 - e.g. restrict regions across all accounts
+- rules - multi account governance
+- Mandatory, Strongly Recommended or Elective. (enforced or not enabled)
+	- **Preventive** => Stop you doing things  [[docs/corporate/AWSOrganisations#Serve Control Policies (SCP)|SCP]]
+	- **Detective** => compliance checks [[AWSConfig]] Rules.
+		-  e.g. identify untagged ressources
+	- they are either in **clear** , **in violation** or **not enabled**.
 
-### Detective Guiardrail
-- uses [[AWSConfig]]
-- e.g. identify untagged ressources
+### Account Factory
+- automated account provisioning
+- **cloud admins** or **end users** (with right set of permissions)
+- Guardrails - **automatically** added to all acounts
+- accounts can be **closed** or **repurposed**
+- account & network **standard configuration**
+- can be fully **integrated** with a business **SDLC**.
+
 
 ## Further Integration
 - [[SNS]]
