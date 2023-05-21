@@ -1,4 +1,4 @@
-#### Encryption at Rest
+  #### Encryption at Rest
 
 -   An example is a password on a laptop
     -   If the laptop is stolen, the data is already encrypted and useless.
