@@ -5,8 +5,8 @@
 AMIs are preconfigured [[EC2]] Instance templates. Very similar to dockerfiles. But for [[EC2]]. AMIs alow further customisation of your instances, right on startup of an instance. You can create your own custom AMI or choose one aws and other users have already build.
 
 ## Custom AMI
--  locked to region of creation, but can be manually copied to another region
-- faster boot time, because you wont have to install as many or no depenencies
+-  locked to **region** of creation, but can be manually copied to **another** **region**
+- faster **boot** **time**, because you won't have to install as many or no depenencies
 
 ### AWS Marketplace AMI
 - user created AMIs, these might cost money
