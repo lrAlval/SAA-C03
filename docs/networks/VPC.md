@@ -4,7 +4,50 @@
 ## TLDR
 A stack of AWS ressources, more clearly the connectivity and setup options for and between these ressources.
 
-## Console Wizard
+## VPC Consideration
+
+-   What size should the VPC be. This will limit the use.
+-   Are there any networks we can't use?
+-   Be mindful of ranges other VPCs use or are used in other cloud environments
+-   Try to predict the future uses.
+-   VPC structure with tiers and resilience (availability) zones
+-   VPC min /28 network (16 IP)
+-   VPC max /16 (65456 IP)
+-   Avoid common range 10.0 or 10.1, include up to 10.10
+    -   Suggest starting of 10.16 for a nice clean base 2 number.
+
+Reserve 2+ network ranges per region being used per account. Think of the highest region you will operate in and add extra as a buffer.
+
+An example using 4 AWS accounts.
+
+-   Regions with 2 ranges in each Region
+    -   3 regions in US
+    -   1 region in Europe
+    -   1 region in AUS
+-   Total of 40 ranges, 10 ranges for each account.
+
+| VPC Size    | Netmask | Subnet Size | Hosts/Subnet* | Subnet/VPC | Total IPs |
+| ----------- | ------- | ----------- | ------------- | ---------- | --------- |
+| Micro       | /24     | /27         | 27            | 8          | 216       |
+| Small       | /21     | /24         | 251           | 8          | 2008      |
+| Medium      | /19     | /22         | 1019          | 8          | 8152      |
+| Large       | /18     | /21         | 2043          | 8          | 16344     |
+| Extra Large | /16     | /20         | 4091          | 16         | 65456     |
+
+
+### Custom VPC
+
+-   Regional Isolated and Resilient Service.
+    -   Operates from all AZs in that region
+-   Allows isolated networks inside AWS.
+-   Nothing IN or OUT of a VPC without explicit configuration.
+    -   Isolated blast radius. Any problems are limited to that VPC or anything connected to it.
+-   Flexible configuration
+-   Hybrid networking to allow connection to other cloud or on-prem networking.
+-   Default or Dedicated Tenancy. This refers to how the hardware is configured.
+    -   Default allows on a per resource decision later on.
+    -   Dedicated locks any resourced created in that VPC to be on dedicated hardware which comes at a cost premium.
+
 
 ### Options
 
