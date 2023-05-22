@@ -1,8 +1,12 @@
  # EC2 Instance Store
 
-- hardware disk, lower latency than ebs
-- better IO performance
-- Data will be lost if instance is stopped (ephemeral)
-- Good for buffer, cache , scratch data, temporary content
-- Hardware fail loses data
-- Backup and Replication manuell recommended
+- **hardware disk**, **lower latency** than [[EBS]]
+- better **IO** performance
+- **Backup** and **Replication** are **customer responsability**
+
+## Caveats
+- **Data will** be **lost** if instance is stopped (ephemeral)
+- Risk of **data loss** if hardware **fails**
+
+## use case
+- Good for **buffer**, cache **,** scratch data, temporary content.

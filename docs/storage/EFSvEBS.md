@@ -1,15 +1,24 @@
 # choose a volume
 
 ## EBS
-- only one instace
-- single az
-- gp2 io increased via disk size
-- io1: can increase io without disksize
+- can only be attached to **one instance** (except multi-attach io1/io2)
+- **single az**
+- gp2:io increases if the disk size increases .
+- io1: can increase io independently.
+- To migrate an EBS volume across **AZ**
+	-  take snapshot
+	- restore snapshot to another **AZ**
+	- EBS backups use io and you shouldn't run them while your app is handlinga lot of traffic.
+- by default: Root EBS volumes of instances get terminated when the [[EC2]] instance gets terminated. (you can disable that)
 
 ## EFS 
-- mounting 100 of linux ec2s 
-- more expensive
-
+- Goal: simplify setting and managing shared file storage in cloud env.
+- main purpose is mounting 100 of linux ec2s across **AZs** 
+- **more expensive** than EBS
+- EFS share websites files (wordpress)
+- can leverage EFS-IA for cost savings.
+![[Pasted image 20230521231243.png]]
 ## Instance Store
-- i need max iops
-- my data is not critical
+- I need max iops
+- useful when data is not critical & is replaceable
+- Good for **buffer**, cache **,** scratch data, temporary content.
