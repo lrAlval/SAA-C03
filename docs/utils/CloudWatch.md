@@ -17,6 +17,14 @@ Central service for all logs and metrics in AWS.
 - can create dashboard
 - can create custom metrics
 
+#### Metrics NOT Collected
+-   Memory utilization
+-   Disk swap utilization
+-   Disk space utilization
+-   Page file utilization
+-   Log collection
+-   If you need the above information, then you can **retrieve** it **via** the official **CloudWatch agent** or you can create a **custom metric** and send the **data** on your own via a **custom script**.
+
 ### Cloudwatch metrics streams
 - continually stream cloudwatch metrics to 
 - [[Kinesis]] Firehouse
