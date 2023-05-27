@@ -2,23 +2,25 @@
 # Elasticache
 
 ## TLDR
-Voliltile Caching Layer with high performance.
+Volatile Caching Layer with high performance.
 
 ## Features
 - in memory data store
-- boost performance of databases
+- managed [[Redis]] or [[Memcached]].
+- Boost performance of databases
 - use cases caching, session stores, gaming, geospatial services, real time analytics and queuing
 - for relational databases caching layer
 - helps make app stateless
-- aws manged (os, patching, monitoring, failure recover, backups)
-- requires app changes
+- AWS managed (OS, patching, monitoring, failure recover, backups)
+- requires app changes.
 
 ## Use Cases
-- read heavy hpc tasks
-- compute heavy hpc tasks
+- read **heavy** **HPC** tasks
+- **compute** heavy HPC **tasks**
 - session stores
-- high performance db caching
-- ...
+- high **performance DB caching**
+	- **Gaming Leaderboards**
+	- 
 
 ## Redis
 - see [[Redis]]
@@ -30,19 +32,23 @@ Voliltile Caching Layer with high performance.
 - no snapshots
 - no transactions
 - no pub/sub
-- no geosparital support
-- no lua scripting
-- no high availabilty
-- sharding
-- non persistent
+- no geospatial support
+- no Lua scripting
+- no high availability
+- Sharding
+- non-persistent
 - no backups
-- support SASL based auth
+- support **Simple Authentication and Security Layer** (SASL) based auth
 
 ## Security
 - no [[IAM]] Auth
-- can us ssl encruption for in flight
+- IAM policies used only for AWS API-level security
+- can us  SSL encryption for in flight
 
 ## Loading patterns
-- lazy (all read data is cached, but can become stale)
-- write through (adds or updates to the db are mirrored in the cache)
-- session store (expire data with time to live)
+- **lazy** (all read data is **cached**)
+	- data **can become stale**.
+- Write **through** (adds or updates to the db are mirrored in the cache) 
+	- **no stale data**.
+- **Session** store (expire data with **time to live**)
+	- **no stale data**.
