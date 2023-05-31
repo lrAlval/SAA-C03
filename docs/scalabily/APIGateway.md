@@ -21,12 +21,12 @@
 
 
 ### Edge Optimized
-- routed through [[Cloudfront]]
+- routed through [[AWS CloudFront]]
 - used for global clients
 
 ### Regional
 - clients within the same region
-- manually combine with [[Cloudfront]] for more control
+- manually combine with [[AWS CloudFront]] for more control
 
 ### Private
 - only from within your vpc

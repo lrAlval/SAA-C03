@@ -93,3 +93,10 @@ Each address is 128 bits long. They are addressed by the start of the network an
 `2001:0db8:28ac::/48` really means the network starts at `2001:0db8:28ac:0000:0000:0000:0000:0000` and finishes at `2001:0db8:28ac:ffff:ffff:ffff:ffff:ffff`
 
 `::/0` represents all IPv6 addresses
+
+## Message Addressing Methods
+
+- **Unicast** is for ***one-to-one*** communication, where a message is sent to a specific recipient.
+- **Multicast** is for ***one-to-many*** communication, where a message is sent to a selected ***group of recipients*** who have expressed interest in receiving it.
+- **Broadcast** is for ***one-to-all*** communication, where a message is sent to all devices on a network, regardless of their interest.
+- **Anycast** is for ***one-to-nearest*** communication, where a message is sent to the ***closest available receiver*** among a group of potential receivers.

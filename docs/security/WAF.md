@@ -5,7 +5,7 @@
 ## Deploy Targets
 - ALB [[ELB]]
 - [[APIGateway]]
-- [[Cloudfront]]
+- [[AWS CloudFront]]
 - AppSync GraphQL API
 - [[Cognito]] User Pool
 
@@ -17,4 +17,4 @@
 - size constraints
 - geo matching
 - rate based rules
-- rules are region, for [[Cloudfront]] they are global
+- rules are region, for [[AWS CloudFront]] they are global

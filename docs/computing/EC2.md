@@ -26,6 +26,11 @@ EC2 is a the combination of a virtual mashine and hardware capacity attached to 
 - Installing software
 - Download files from the internet
 
+### Instantiating EC2 Instances quickly
+- Use Golden AMI(pre-configured AMI with all dependencies installed)
+- Boostraping using User data : For dynamic config, user data scripts
+- Hybrid: mix Golden AMI and User Data [[ElasticBeanstalk]]
+
 ### Instance Types
 - https://instances.vantage.sh/
 

@@ -142,7 +142,7 @@ AWS family of load balancers. Is used to spread and control traffic to a vertica
 - clients can use this to specify the hostname they reach
 - allows to load multiple certs on one web server https website on one server
 - client indicateds hostname of the target server in inital handshake
-- only for ALB or NLB or [[Cloudfront]]
+- only for ALB or NLB or [[AWS CloudFront]]
 ![[Pasted image 20230522184145.png]]
 ### CLB
 - only one ssl cert

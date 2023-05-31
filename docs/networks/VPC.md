@@ -105,7 +105,7 @@ An example using 4 AWS accounts.
 - gives double throughput of virtual private gateway by using ECMP support
 
 ## VPC Sharing
-- share one or more subnets within other accounts beloning to the same [[AWSOrganisations]]
+- share one or more subnets within other accounts beloning to the same [[AWS Organizations]]
 - every account can only work with the ressources they created
 
 ## VPC Flow Logs

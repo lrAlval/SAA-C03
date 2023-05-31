@@ -12,7 +12,7 @@
 
 ## Integrations
 - [[ELB]]
-- [[Cloudfront]]
+- [[AWS CloudFront]]
 - [[APIGateway]]
 
 ## Options

@@ -11,7 +11,7 @@ Protect your ressources from DDOS Attacks.
 ## AWS Shield Advanced 
 - optional paid service
 - pay per organisation
-- works for [[EC2]], [[ELB]], [[Cloudfront]], [[GlobalAccelerator]] and [[Route53]]
+- works for [[EC2]], [[ELB]], [[AWS CloudFront]], [[GlobalAccelerator]] and [[Route53]]
 - 24/7 AWS DDOS Support Team
 - 3k per month cost
 - no higher fees due to ddos fees are nulled (dont pay for increased traffic)

@@ -2,7 +2,7 @@
 # AWS Firewall Manager
 
 ## TLDR
-Centraly manage firewall config and rules for [[AWSOrganisations]]
+Centraly manage firewall config and rules for [[AWS Organizations]]
 
 ## Supported Services
 - [[WAF]]

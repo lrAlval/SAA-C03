@@ -36,12 +36,12 @@ AWS Nameserver and Domain Name register Service.
 
 #### Alias
 - can target a root domain (cname can not)
-- can only be used for aws ressources
+- can only be used for **AWS resources**
 
 ## Endpoint types
 
 ### Outbound
-- used by ressources in [[VPC]] to resolve dns querys to ressources outside of the [[VPC]]  (e.g. on premise)
+- Used by resources in [[VPC]] to resolve DNS query's to resources outside of the [[VPC]]  (e.g. on premise)
 
 ## Inbound
 - used by ressources outside of aws to resolve name to ressources inside a [[VPC]]

@@ -2,18 +2,18 @@
 # AWS Control Tower
 
 ## TLDR
-Control Tower is often used in conjunction with [[AWSOrganisations]]
+Control Tower is often used in conjunction with [[AWS Organizations]]
 to manage and configure a multi account setup.
 
 ![[Pasted image 20230515180648.png]]
 
 
 ## Benefits
-- Automate setup of [[AWSOrganisations]]
+- Automate setup of [[AWS Organizations]]
 - Automate policy management using guard rails
 - Detect policy violations
 - Monitor compliance through dashboard
-- Streamline account creation in [[AWSOrganisations]]
+- Streamline account creation in [[AWS Organizations]]
 
 ## Elements
 - Landing zone - **multi-account** env
@@ -25,7 +25,7 @@ to manage and configure a multi account setup.
 ## Landing Zone
 -[[IdentityCenter]] = SSO  multiple-accounts, Id Federation
 - Monitoring and Notifications = CloudWatch and SNS
-- built with [[AWSOrganisations]] , [[AWSConfig]], [[Cloudformation]]
+- built with [[AWS Organizations]] , [[AWSConfig]], [[Cloudformation]]
 - Security OU = Log Archive & Audit Accounts ([[CloudTrail]] & Config Logs)
 - Sandbox OU = Test/less rigid security.
 - you can create other OU's and accounts.
@@ -35,11 +35,11 @@ to manage and configure a multi account setup.
 ## Guardrails
 
 ### Preventive Guardrail
-- uses [[AWSOrganisations]] SCP
+- uses [[AWS Organizations]] SCP
 - e.g. restrict regions across all accounts
 - rules - multi account governance
 - Mandatory, Strongly Recommended or Elective. (enforced or not enabled)
-	- **Preventive** => Stop you doing things  [[docs/corporate/AWSOrganisations#Serve Control Policies (SCP)|SCP]]
+	- **Preventive** => Stop you doing things  [[AWS Organizations#Serve Control Policies (SCP)|SCP]]
 	- **Detective** => compliance checks [[AWSConfig]] Rules.
 		-  e.g. identify untagged ressources
 	- they are either in **clear** , **in violation** or **not enabled**.
