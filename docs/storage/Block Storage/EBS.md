@@ -8,7 +8,7 @@
 - EBS (Elastic block store) **Volume** is a **network** drive you can attach to your instances while they run.
 - **Network Drive**
 - can only be mounted to one instance at once 
-	- (Except io1 & io2 which can use [[docs/storage/EBS#EBS Multi attach|multi-attach]] feature)
+	- (Except io1 & io2 which can use [[EBS#EBS Multi attach|multi-attach]] feature)
 - limited to **AZ** which it was **created**
 - can be **attached** and **detached** quickly
 - need **snapshot** to **move AZ**
@@ -83,7 +83,7 @@
 
 ### Provisioned IOPS (PIOPS) IO1/IO2
 - high performance SSD
-- supports EBS [[docs/storage/EBS#EBS Multi attach|multi-attach]]
+- supports EBS [[EBS#EBS Multi attach|multi-attach]]
 - mission critical, low latency
 - Great for **databases workloads** (**sensible to sorage perf and consistency**)
 - 4Gib - 16TiB

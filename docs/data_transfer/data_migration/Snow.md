@@ -87,6 +87,7 @@ The Snow **Familiy** is a collection of **hardware** which can be used to transf
 - 104 vCPUs, 416 GiB of RAM
 - Optional **GPU** (useful for video processing or machine learning)
 - 28 Tb NVMe or 42 TB **HDD** usable storage
+- allow pre-processing of data.
 
 #### Storage optimized
 - up to 40 vCPUs, 80 GiB of Ram

@@ -2,45 +2,56 @@
 # Storage Gateway
 
 ## TLDR
-Can be used for a hybrid cloud setup, where data is produced on premise and synced to aws.
+Can be used for a **hybrid cloud** setup, where data is produced on premise and synced to AWS.
 
-## Usage
+![[Pasted image 20230531211257.png]]
+
+## Use cases
 - long term migrations
 - security
-- complicance
+- compliance
 - general IT strategy (hybrid cloud)
 - tiered storage
 - backup and restore
 - disaster recovery
+- on-premises cache & low-latency file access
 
 ## Gateway Types
 
 ### [[S3]] File Gateway
-- NFS or SMB Protocol
-- Translates save file request to http request to [[S3]]
-- Most recently used data is cached in file gateway, so it doesnt have to be fetched from aws
+- Configured S3 Buckets are accessible **using** the **NFS** or **SMB** Protocol
+- Translates save file request to **HTTP**  request to [[S3]]
+- Most recently used data is **cached** in file **gateway**, so it doesn't have to be fetched from AWS.
+- Can use all tiers except **Glacier.**
+- Bucket access using [[IAM]] roles for each file gateway.
+- SMB Protocol has integration with Active directory **(AD)** for user authentication.
 
-### FSx File Gatway
+![[Pasted image 20230531203933.png]]
+
+### FSx File Gateway
 - Native access to [[FSxWindowsFileServer]]
-- Local cache for frequently accessed data
-- Windows native compatiblity (SMB, NTFS, AD)
+- Local **cache** for frequently accessed data
+- Windows **native** compatibility (SMB, NTFS, AD)
 - Group file shares and home directories
 
+![[Pasted image 20230531204047.png]]
+
 ### Volume Gateway
-- Block Storage
-- Backed by [[EBS]] snapshots
-
-#### Cached volumes
-- low latency access to most recent data
-
-#### Stored volumes
-- dataset on premise, backups are schedules to [[S3]]
+- Block Storage using **iSCSI**  backed by [[S3]]
+- backed by [[EBS]] snapshots – can be used to restore on-premises volumes.
+- ***Cached volumes***: low latency access to most recent data.
+- ***Stored volumes***: entire dataset is **on-premise**, scheduled back-ups to [[S3]]
+![[Pasted image 20230531205741.png]]
 
 ### Tape Gateway
-- uses Virtual Tape libray
-- for backup processes using physical Tapes
+- uses Virtual Tape library (**VTL**) 
+- back data using existing tape-based processes (and **iSCSI interface**)
+- for backup **processes** using **physical Tapes**
 - can send directly into [[S3]] Glacier
 
+![[Pasted image 20230531210031.png]]
+
 ## Hardware appliance
-- Can be bought from amazon.com
-- Is a harware which will be your gateway (like a firewall)
+- useful when you don't have any VM for the storage gateway
+- Can be **bought** from amazon.com
+- Is a hardware **which** will be your gateway (like a firewall)
