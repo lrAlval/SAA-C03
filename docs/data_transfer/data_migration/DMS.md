@@ -34,7 +34,7 @@ Migrate an exsisting database into another one. Can also do DB shema conversion.
 - Data Warehouses
 - Streaming Platforms
 - [[Kinesis]]
-- Amazon Manged Streaming of Kafka [[MSK]]
+- Amazon Manged Streaming of Kafka [[Amazon Managed Streaming for Apache Kafka (MSK)]]
 - [[Redshift]]
 - [[Redshift]]
 

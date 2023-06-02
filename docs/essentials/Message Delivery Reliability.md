@@ -2,7 +2,7 @@
 
 ### TL;DR
 - **easiest** type of semantics to achieve.
-- no  delivery guarantees.
+- no delivery guarantees.
 - each message is **delivered** **once** (best case scenario) or **not at all**.
 
 The **easiest** type of semantics to achieve, from an engineering complexity perspective, since it can be done in a fire-and-forget way. There's rarely any need for the components of the system to be stateful. While it's the easiest to achieve, at-most-once is also the least desirable type of messaging semantics. It provides no absolute message delivery guarantees since each message is delivered once (best case scenario) or not at all.

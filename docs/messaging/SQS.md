@@ -2,65 +2,94 @@
 # Simple Queue Service
 
 ## TLDR
-AWS standard queue service. Has ton of features like fifo and multi consumer. Scales indefinetly.
+>AWS standard queue service. Has ton of features like **FIFO** and **multi** **consumer**. Scales indefinitely.
 
 ## Features
-- aws managed
+- AWB managed
 - async systems
-- decouplein
+- decouple
 - message delay up to 15 min
-- unlimited throughput 
-- unlimited numer of messages
-- default retention 4 days, max 14 days
-- max size 256kbs
-- dynamicly add concurrency/ read throughput
-- track ack/fail 
-- set visibilty timeout for ack/fail
+- unlimited **throughput** 
+- unlimited number of messages
+- default retention **4** days, max **14** days
+- max size **256kbs**
+- dynamically add **concurrency**/ read **throughput**
+- track ACK/Fail 
+- set visibility timeout for ACK/Fail
 - scale transparently
-- buffer requests
-- can have duplicate messages
+- buffer **requests**
+- can have out of **order** messages (  best effort ordering)
+- can have **duplicate** messages
+	-  [[docs/essentials/Message Delivery Reliability#**At-least-once semantics**|At east once]] Delivery
+
+## Message Delivery Reliability
+-  [[docs/essentials/Message Delivery Reliability#**At-least-once semantics**|At east once]] Delivery
+- best-effort message ordering.
+
+## Performance
+- low latency (< 10 **ms**)
+- SQS Standard: unlimited **throughput** 
 
 ## Producers
-- needs to use sdk/api
+- needs to use SDK/API
 
 ## Consumers
-- [[EC2]] Instances, [[Lambda]] ..
-- polls queue, recieves up to 10 msg at a time
-- after processing use sdk/api to send delete msg command to [[SQS]]
+- [[EC2]] instances, [[Lambda]] 
+- Polls queue, receives up to 10 **msg** at a time
+- after processing use SDK/API to send delete msg command to [[SQS]]
 
 ## Types
-- cannot convert between types, ressouce needs to be recreated
+- cannot convert between types, resource needs to be recreated
 
 ### Standard
-- max throughput
-- best efford ordering
-- at least once delivery
+- max **throughput**.
+- Best **effort** ordering.
+- **At least once delivery**.
 
-### Fifo
+### FIFO
 - first in first out
-- needs to end with .fifo
-- delivered exactly once
-- max 3k per second with batching
-- max 300 per second withut batching
+- queue name needs to end with .FIFO
+- delivered **exactly** once
+- no **duplicates**.
+- max **3k** per second with batching
+- max **300** per second without batching
 
 ## Security
-- https api 
-- at rest encryption with kms keys
-- client side encryption also possible
-- iAm to control access to queue
+- **In-flight** encryption using HTTPS API 
+- **at rest** encryption with [[KMS]] keys
+	- SSE-SQS: SQS service creates, manages and uses the key.
+	- SSE-**KMS**: key rotation by [[KMS]]
+- **Client side** encryption also possible
+	- if client wants to perform encryption/decryption **itself**.
+- [[IAM]] to control access to queue.
+- **SQS** Access policies.
 
 ### SQS Access policies
-- resource based permissions
-- cross account
-- other services without iam role
+- **resource** based permissions
+- **cross**-account
+- other services **without** [[IAM]] role
 
-## Visibilty Timeout
+## Visibility Timeout
 - after polled msg becomes invisible
-- set to process time to stop being processed twices
-- if process time takes longer can use SQS API to increase visibilty timeout for this message
+- message visibility timeout window is 30 seconds.
+	- Can use **ChangeMessageVisibility** API to increase time.
+- Set to process time to stop being processed twice.
+- If process time takes longer can use **SQS** API to increase visibility timeout for this message.
 
 ## Long Poling
-- Queue gets polled for longer time to wait if queue is empty
-- decrease the number of api calls
-- between 1 and 20 seconds
-- can be configured at queue level or in api request
+- Queue gets polled for longer time to wait if queue is empty.
+- Decrease the number of **API** calls.
+- Between **1** and **20** seconds
+- can be configured at queue level or in **API** request.
+- Useful when needed to reduce API calls & decrease latency.
+
+## Practical Patterns 
+
+- useful for decoupling
+- sudden spike load
+
+![[Pasted image 20230601171601.png]]
+
+![[Pasted image 20230601173802.png]]
+
+![[Pasted image 20230601174007.png]]

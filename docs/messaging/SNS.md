@@ -2,13 +2,14 @@
 # Amazon Simple Notification Service
 
 ## TLDR
-Message queue with a subscriber model. It can send the same message to alot of diffrent services at once. Scales good but not indefinetly.
+>Message queue with a subscriber model. It can send the same message to a lot of different services at once. Scales good but not indefinitely.
 
 ## Features
 - subscriber async model
-- one producer multiple consumers/subscribers
-- up to 12 million subscribtions per topic
-- up to 100k topics
+- **Pub** / **sub** model.
+- One producer multiple consumers/**subscribers**
+- up to 12 **million** subscriptions per topic
+- up to 100k topics.
 
 ## Sources
 - [[CloudWatch]] alarms
@@ -16,8 +17,7 @@ Message queue with a subscriber model. It can send the same message to alot of d
 - AWS Budgets [[AWSBilling]]
 - [[Lambda]]
 - [[DynamoDB]]
-- Cloudformation
-- ...
+- [[Cloudformation]]
 
 ## Targets
 - [[Kinesis]] Data Firehouse
@@ -26,10 +26,10 @@ Message queue with a subscriber model. It can send the same message to alot of d
 - HTTP
 - E-Mail
 - push
-- sms
+- SMS
 
 ## Topic Publish
-- create a topic
+- create a **topic**
 - add subscriptions to topic
 - publish to the topic
 
@@ -39,20 +39,42 @@ Message queue with a subscriber model. It can send the same message to alot of d
 - create platform endpoint
 - publish to endpoint
 - Google GCM
-- Apple APNS
-- Amazon ADM ...
+- Apple **APNS**.
+- Amazon ADM.
 
 ## Security
-- https by default
+- HTTPS by default
 - at rest using [[KMS]]
 - client side optional
-- iam for access control
-- sns access policies, ressource based for cross account or other services
+- [[IAM]] for access control
+- SNS access policies
+	- resource based for **cross account** or other services.
 
-## Fifo
-- same as [[SQS]] Fifo
+## FIFO
+- same as [[SQS]] FIFO
+- ordering by message group id (all message in the same group are ordered)
+- deduplication using deduplication Id or content based deduplication.
+- Only SQS FIFO can be a subscriber.
+
+##
 
 ## Filtering
-- json policies on a subscriber 
-- will only recive msg which match the filter
-- can be used with fan out to split sns msgs to multiple deticated [[SQS]] queues
+- JSON policies on a subscriber 
+- will only receive msg which match the filter
+- can be used with fan out to split SNS messages to multiple dedicated [[SQS]] queues
+
+## Patterns
+- SNS + SQS
+![[Pasted image 20230601174933.png]]
+
+- S3 Events to multiple queues
+![[Pasted image 20230601175140.png]]
+
+- SNS → Kinesis → S3
+![[Pasted image 20230601175234.png]]
+- SNS FIFO → SQS FIFO 
+![[Pasted image 20230601175448.png]]
+
+- SNS Message Filtering → SQS Queue
+
+![[Pasted image 20230601175631.png]]

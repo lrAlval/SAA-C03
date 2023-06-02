@@ -32,13 +32,13 @@
 	- Peering
 	- [[VPN]], 
 	- [[DirectConnect]]
-	- Native windows FS or Directory Services.
+	- Native windows **FS** or **Directory** Services.
 
 #### Words to look for
 
 - **VSS**: User Driven Restores
-- Native File System (**NFS**) accessible over SMB
-- Windows permissions model
-- Product supports Distribute File Systems (DFS), scale out file share.
+- Native File System (**NFS**) accessible over **SMB**
+- Windows **permissions** model
+- Product supports Distribute File Systems (**DFS**), scale out file share.
 - Managed service, no file server admin
-- Integrates with DS and your own directory.
+- Integrates with **DS** and your own directory.
