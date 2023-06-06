@@ -36,7 +36,7 @@
 ## Consumers
 - [[EC2]] instances, [[Lambda]] 
 - Polls queue, receives up to 10 **msg** at a time
-- after processing use SDK/API to send delete msg command to [[SQS]]
+- after processing use SDK/API to send delete msg command to [[docs/messaging/SQS]]
 
 ## Types
 - cannot convert between types, resource needs to be recreated
@@ -70,6 +70,7 @@
 - other services **without** [[IAM]] role
 
 ## Visibility Timeout
+- default 30 sec, min 0 sec , max 12 hours
 - after polled msg becomes invisible
 - message visibility timeout window is 30 seconds.
 	- Can use **ChangeMessageVisibility** API to increase time.

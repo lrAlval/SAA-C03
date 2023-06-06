@@ -26,7 +26,7 @@ Central message service with the most amount of targets. Is used by aws behind t
 - [[Lambda]]
 - [[Batch]]
 - [[ECS]]
-- [[SQS]]
+- [[docs/messaging/SQS]]
 - [[SNS]]
 - [[StepFunction]]
 - pipelines

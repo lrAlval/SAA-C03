@@ -1,22 +1,22 @@
-# Step Functions
-- build serverless visual works to orachastrate Lambda function
+> Build serverless visual works to orchestrate Lambda function
+
+
 ## Features
 - sequence
-- paralell
-- conditons
+- parallels
+- conditions
 - timeouts
 - error handling
 - human approval
 ## Integrations
-- Lmabda
-- ec2
-- ecs
-- on prem,ise servers
-- sqs
-- api gateway
-- ...
+- [[Lambda]]
+- [[EC2]]
+- [[ECS]]
+- on premise servers
+- [[SQS]]
+- [[APIGateway]]
 ## Use cases    
-- order fulliment
-- data processing
+- order fulfillment
+- data **processing**
 - web applications
 - any workflow

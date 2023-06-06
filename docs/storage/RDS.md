@@ -2,7 +2,7 @@
 # RDS
 
 ## TLDR
-Various  relational databases, manged by AWS.
+Various  relational databases, managed by AWS.
 Supported DBs:
 - Postgres
 - MySQL

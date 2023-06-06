@@ -73,40 +73,50 @@
 - user auth 
 
 ### CloudFront Edge function
-- code attached to CloudFront distributions
-- runs closer to users for min latency
-- lightweight written in js
-- high scale latency senstive cns customisations
-- sub ms startuptimes
-- managed in cloudfront
-- millions of request per second
+- code attached to **CloudFront** distributions.
+- Used to change viewer **requests** and **responses**
+- Runs closer to users for min **latency**.
+- Lightweight **written** in JS.
+- high scale latency **sensitive** CNS customizations.
+- Sub **ms** startup times.
+- Managed in CloudFront.
+- Millions of request per second.
 
 #### Price
 - Free tier available
-- 1/5 of [[Lambda]] @Edge
+- 1/5 of [[Lambda]]@Edge
 
 #### Use cases
-- cache key normalisation (transform request attributes)
-- header manipulation
-- url rewrites and rediect
-- validate jwt tokens
+- cache key normalization (transform request attributes)
+	- Transform request attributes to create an optimal cache key:
+		- headers
+		- cookies
+		- query strings
+		- URL
+- customize CDN content.
+- **Header** manipulation.
+- URL rewrites and redirect.
+- Validate JWT tokens.
+
 
 ### [[Lambda]] at Edge
-- **nodeJs** or python
+- **Node.js** or python
 - 1ks of request per second
 - can change every part of the request (viewer and origin)
+
+![[Pasted image 20230604230739.png]]
 
 #### Price
 - no free tier
 
 #### Use cases
-- loner exec time
-- adjustible cpu memory
-- code depends on 3rd party (AWS CLI)
-- Network access
-- File System Access
-- Http Body Access
+- longer exec time (several ms).
+- Adjustable CPU memory.
+- Code depends on 3rd party libraries(e.g. AWS SDK to access other AWS services).
+- Network access to use external services for processing.
+- File System Access.
+- HTTP Body Access.
 
 ## Availability
-- can setup origin failover
+- can set up origin failover
 - an origin group may have a primary and a secondary origin

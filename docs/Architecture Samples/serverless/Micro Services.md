@@ -1,0 +1,17 @@
+- Sync Patterns:
+	- API Gateway
+	- Load Balancers
+- Async Patterns
+	- SQS
+	- Kinesis
+	- SNS
+	- Lambda triggers (S3)
+- Challenges with microservices:
+	- repeated overhead for creating each new microservice.
+	- Issues with optimizing server density/utilization.
+	- Complexity of running multiple versions of multiple microservices simultaneously.
+	- Proliferation of client-side code requirements to integrate with many services.
+- Some challenges are solved by Serverless patterns:
+	- **API Gateway**, **Lambda** scale automatically and you per usage.
+	- You can easily clone API, reproduce environments.
+	- Generated client SDK through Swagger integration for the API Gateway.

@@ -21,7 +21,7 @@
 
 ## Targets
 - [[Kinesis]] Data Firehouse
-- [[SQS]]
+- [[docs/messaging/SQS]]
 - [[Lambda]]
 - HTTP
 - E-Mail
@@ -51,7 +51,7 @@
 	- resource based for **cross account** or other services.
 
 ## FIFO
-- same as [[SQS]] FIFO
+- same as [[docs/messaging/SQS]] FIFO
 - ordering by message group id (all message in the same group are ordered)
 - deduplication using deduplication Id or content based deduplication.
 - Only SQS FIFO can be a subscriber.
@@ -61,7 +61,7 @@
 ## Filtering
 - JSON policies on a subscriber 
 - will only receive msg which match the filter
-- can be used with fan out to split SNS messages to multiple dedicated [[SQS]] queues
+- can be used with fan out to split SNS messages to multiple dedicated [[docs/messaging/SQS]] queues
 
 ## Patterns
 - SNS + SQS

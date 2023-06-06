@@ -15,7 +15,7 @@
 ## Targets
 - Lambda for REST
 - any HTTP endpoint
-- any AWS API ([[StepFunction]], [[SQS]], ...)
+- any AWS API ([[StepFunction]], [[docs/messaging/SQS]], ...)
 
 ## Endpoint Types
 

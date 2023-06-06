@@ -17,7 +17,7 @@
 - Fraud Detection
 - IoT Data Ingestion and Processing
 - Social Media Streaming and Analysis
-- Gaming Analytics
+- Gaming **Analytics**
 - IoT Data Ingestion
 
 ## Limitations

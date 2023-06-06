@@ -12,7 +12,7 @@
 - Real-time (200 **MS**).
 - Manage scaling (shard splitting / merging).
 - Data Storage for 1 to 365 days.
-- Supports replay capability.
+- Supports **replay** capability.
 
 ## Kinesis Data firehose
 - **Load Streams** into destinations.
@@ -20,10 +20,10 @@
 - Only support 1 **consumer** at the time.
 - Load streaming data into:
 	- S3
-	- Redshift
-	- OpenSearch
-	- ElasticSearch
-- Fully Managed
+	- **Redshift**
+	- **OpenSearch**
+	- **ElasticSearch**
+- **Fully** Managed
 - Automatic scaling.
 - No data storage.
 - Doesn't support replay capability.

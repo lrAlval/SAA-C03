@@ -2,7 +2,7 @@
 # Kinesis
 
 ## TLDR
->Kinesis is a set of services for streaming real time or next to real time data in AWS. It's generally more expensive and more difficult to set up than [[SQS]] but offers more features and higher performance.
+>Kinesis is a set of services for streaming real time or next to real time data in AWS. It's generally more expensive and more difficult to set up than [[docs/messaging/SQS]] but offers more features and higher performance.
 
 ## Features
 - **region** scoped
@@ -29,8 +29,9 @@
 - shards which split data and computing power
 
 ### Record
-- entry in kinesis
-- partition key which targets the shard
+- **entry** in kinesis
+- uses Sharding
+- **partition key which** targets the shard
 - data blob (up to 1mb)
 - Producers can set 1mbs and 1000msg per sec per SHARD
 
@@ -75,13 +76,13 @@
 ## Data Ordering in SQS vs. Kinesis
 >kinesis your producers need to use the same partition/shard key for related data
 
-- in [[SQS]] there is no ordering
-- in [[SQS]] FIFO there is only one consumer and order stays the same
-- in [[SQS]] FIFO queue if you want to send related data to different consumers you use a group id, which works then similar to kinesis
+- in [[docs/messaging/SQS]] there is no ordering
+- in [[docs/messaging/SQS]] FIFO there is only one consumer and order stays the same
+- in [[docs/messaging/SQS]] FIFO queue if you want to send related data to different consumers you use a **group** id, which works then similar to kinesis
 
-### [[SQS]] VS [[SNS]] VS [[Kinesis]]
+### [[docs/messaging/SQS|SQS]] VS [[SNS]] VS [[Kinesis]]
 
-#### [[SQS]] 
+#### [[docs/messaging/SQS||SQS]] 
 - pull data then delete message via API call from consumer
 - Message is processed by exactly once consumer (hopefully)
 - as many workers as you want
