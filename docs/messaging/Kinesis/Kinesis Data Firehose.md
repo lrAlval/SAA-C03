@@ -6,7 +6,7 @@
 - Allows delivery / transformation of streams to supported **destinations**.
 	- Any HTTP endpoints
 	- ElasticSearch
-	- [[Redshift]]
+	- [[Amazon Redshift]]
 	- [[OpenSearch]]
 	- Splunk
 	- Datadog
@@ -48,7 +48,7 @@
 - Destination Bucket -  [[S3]]
 - Any HTTP endpoints
 - ElasticSearch
-- [[Redshift]]
+- [[Amazon Redshift]]
 - [[OpenSearch]]
 - Splunk
 - Datadog

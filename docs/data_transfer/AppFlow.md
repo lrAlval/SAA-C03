@@ -17,7 +17,7 @@ Transfer data from 3rd party (SasS) Systems into and out of AWS.
 
 ## Destinations
 - [[S3]]
-- [[Redshift]]
+- [[Amazon Redshift]]
 - 3rd Party
 
 ## Frequency

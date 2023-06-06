@@ -68,7 +68,7 @@
 
 ### Targets
 - [[S3]]
-- [[Redshift]]
+- [[Amazon Redshift]]
 - Elasticsearch
 - Splunk
 - custom HTTP endpoints

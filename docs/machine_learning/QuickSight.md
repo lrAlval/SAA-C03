@@ -18,7 +18,7 @@ Quicksight is an interactive dashboard for buisness intelligence, leveragin an A
 ### Intregrate
 - [[RDS]]
 - [[Aurora]]
-- [[Redshift]]
+- [[Amazon Redshift]]
 - [[S3]]
 
 ### Enterprise

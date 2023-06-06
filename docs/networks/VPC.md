@@ -118,7 +118,7 @@ An example using 4 AWS accounts.
 - [[ELB]]
 - [[RDS]]
 - [[ElastiCache]]
-- [[Redshift]]
+- [[Amazon Redshift]]
 - WorkSpaces 
 - NATGW
 - Transit Gateway
