@@ -1,11 +1,14 @@
 ![[Pasted image 20221031140738.png]]
-# Personalize
-
-## TLDR
-AI which can create personalized recommendations in real time. Amazon.com uses this tech.
+>AI which can create personalized recommendations in real time. Amazon.com uses this tech.
+![[Pasted image 20230606151132.png]]
 
 ## Features
-- fully managed
-- integrates into exisiting websites, applications, sms email, marketing systems
-- implement in days not months
-- use personalize api to feed data
+- Fully managed.
+- ML-service real-time personalized **recommendations**.
+- Integrates into 
+	- existing websites, 
+	- applications, 
+	- SMS email, 
+	- marketing systems.
+- Implement in **days**, not months.
+- Use personalize API to feed data.

@@ -30,7 +30,7 @@ Migrate an exsisting database into another one. Can also do DB shema conversion.
 - relational Databases
 - [[OpenSearch]]
 - [[DynamoDB]]
-- [[DocumentDB]]
+- [[Amazon DocumentDB]]
 - Data Warehouses
 - Streaming Platforms
 - [[Kinesis]]

@@ -1,145 +1,211 @@
 ![[Pasted image 20221101162633.png]]
-# CloudWatch
+> Central service for all logs and metrics in AWS.
 
 ## TLDR
 Central service for all logs and metrics in AWS.
 
 ## Features
-- can setup alarms
-- can stop, terminate, reboot and recover [[EC2]] instances
-- can trigger [[Lambda]] or [[EventBride]]
+- can set up alarms.
+- Can stop, **terminate**, reboot and recover [[EC2]] instances.
+- Can trigger [[Lambda]] or [[EventBride]].
 
-## Cloudwatch Metrics
-- metrics for every service in AWS
-- bucketet by namespaces
-- a metric can has up to 10 attributes
-- metrics can have timestamps
-- can create dashboard
-- can create custom metrics
+## CloudWatch Metrics
+- Metrics for every **service** in AWS.
+- Bucket  by namespaces.
+- Up to **30** dimensions per metric.
+- A metric can has up to **10** attributes.
+- Metrics can have timestamps.
+- Can create dashboard.
+- Can create custom metrics.
 
 #### Metrics NOT Collected
--   Memory utilization
+-   **Memory** utilization
 -   Disk swap utilization
 -   Disk space utilization
 -   Page file utilization
--   Log collection
--   If you need the above information, then you can **retrieve** it **via** the official **CloudWatch agent** or you can create a **custom metric** and send the **data** on your own via a **custom script**.
+-   **Log** collection
+-   If you need the above information, then you can **retrieve** it **via** the official **CloudWatch agent**, or you can create a **custom metric** and send the **data** on your own via a **custom script**.
 
-### Cloudwatch metrics streams
-- continually stream cloudwatch metrics to 
-- [[Kinesis]] Firehouse
-- 3rd party providers
-- option to filter metrics, to just send a subset
+### CloudWatch's metrics streams
+- continually stream CloudWatch metrics to:
+	- [[Kinesis]] **Firehouse**.
+	- 3rd party providers.
+		- Dynatrace.
+		- New Relic
+		- Splunk.
+		- Sumo Logic.
+	- Option to filter metrics, to just send a subset.
 
-## Cloudwatch Logs
-- Log groups (application name)
-- log steam (log files, instances whitin on app, containers)
-- can define log expiration days
+## CloudWatch Logs
+- Log **groups** (**application** name).
+- Log **steam** (log files, instances within on app, containers).
+- Can define log expiration days (1 day to 10 years).
+- Logs are **encrypted by default.**
+- Can set up KMS-based encryption with your own keys.
+
+## Sources
+
+![[Pasted image 20230606194907.png]]
 
 ### Targets To Send Logs To
-- [[S3]]
-- [[Kinesis]] data streams
-- [[Kinesis]] data firehouse
-- [[Lambda]]
-- elasticsearch
+- [[S3]] .
+- [[Kinesis]] data streams.
+- [[Kinesis]] data firehouse.
+- [[Lambda]].
+- Elasticsearch.
+- OpenSearch.
 
 ### How to send Logs
-- SDK
-- Cloudwatch Logs Angent
-- Cloudwatch unified agent
-- [[ElasticBeanstalk]], collection of logs from applciation
-- [[ECS]] collection from containers
-- aws [[Lambda]] collection from function logs
-- [[VPC]] flow logs
-- [[APIGateway]]
-- [[CloudTrail]] based on filter
-- [[Route53]] dns requests
+- SDK.
+- CloudWatch Logs agent.
+- CloudWatch unified agent.
+- [[ElasticBeanstalk]], collection of logs from application.
+- [[ECS]] collection from containers.
+- AWS [[Lambda]] collection from function logs.
+- [[VPC]] flow logs.
+- [[APIGateway]].
+- [[CloudTrail]] based on filter.
+- [[Route53]] DNS requests.
 
 ### Filter 
-- look for ip 
-- look for string
-- can trigger cloudwatch alarmas
+- look for IP.
+- look for string.
+- Can trigger CloudWatch alarms.
 
 ### Insights
 - query logs for dashboard
+- query engine, not real-time.
+- Can query multiple  log groups in different AWS accounts.
+- Auto discovers fields from AWS services and JSON log events.
 
-#### Container Insights
-- collect and aggregate logs from containers
-- [[ECS]]
-- [[EKS]]
-- [[EKS]]
-- [[ECS]] Fargate
-- used containerized version of the container agent
+![[Pasted image 20230606195032.png]]
 
-#### Lambda Insights
-- metircs for [[Lambda]] functions
-- is provided via [[Lambda]] layer
+![[Pasted image 20230606195237.png]]
 
-#### Contributer Insights
-- Top N Contributers to Network traffic
-- identify bad hosts
+#### CloudWatch Container Insights
+- collect and **aggregate** logs from containers.
+- [[ECS]].
+- [[EKS]].
+- Kubernetes platforms on EC2.
+- Fargate (both for [[ECS]] and [[EKS]].
+- Used **containerized** version of the **container** **agent**.
 
-#### Application Insights
+#### CloudWatch Lambda Insights
+- metrics for [[Lambda]] functions
+	- CPU time.
+	- Memory.
+	- Disk.
+	- Network.
+- It is provided via [[Lambda]] layer.
+- Collets, aggregates & summarizes diagnostic info.
+	- Cold starts.
+	- Lambda worker shutdowns.
+
+#### Contributor Insights
+- Top N Contributors to Network traffic.
+- Identify **bad** hosts.
+- Works for any AWS-generated logs (VPC,DNS, etc..)
+- Identify the heaviest **network** **users**.
+![[Pasted image 20230606233742.png]]
+
+#### CloudWatch Application Insights
 - automated dashboard with monitored applications
-- suport only select techstack on ec2 (java, iis, databases)
-- can use additional ressources ([[RDS]], [[S3]], [[SNS]] ...)
+- Support only select tech stack on ec2 (java, IIS, databases)
+- can use additional resources ([[RDS]], [[S3]], [[SNS]] ...)
 - Powered by Sage maker
 - reduce time to troubleshoot
-- alters and findigs are sent to [[EventBride]] and [[SSM]] OpsCenter
+- alters and findings are sent to [[EventBride]] and [[SSM]] Ops Center.
 
 ### Export
--  to s3 up to 12 hours
-- api call is createexporttask
-- use log sbursciptions for real tiome
+-  to s3 up to 12 hours.
+- API call is “**CreateExportTask**”.
+- Use log subscriptions for real time.
 
 ### Log subscriptions
-- Uses a filter
-- send to destination (e.g. [[Lambda]] )
+- Use a filter.
+- Sent destination:
+	- [[Kinesis Data Stream]]
+	- [[Kinesis Data Firehose]]
+	- [[Lambda]]
+
+
+![[Pasted image 20230606200225.png]]
 
 ### Multi account
-- use one  central kinesis and subscriptions
+- use one central kinesis and subscriptions.
 
-## Cloudwatch Agent
-- software on ec2
-- needs correct permission
+## CloudWatch Agent
+- software on ec2.
+- Needs correct permission.
 
-### Logs Agent
+### CloudWatch Logs Agent
 - old version 
 - only send to [[CloudWatch]] logs
 
-### Unified Agent
-- collects system level metrics such as RAM processes etc
-- collect logs to send to [[CloudWatch]] logs
-- configuration via [[SSMParameterStore]] 
+### CloudWatch Unified Agent
+- more granular metrics than old agent.
+- Collects system level metrics such as RAM processes etc.
+- out-of-the box metrics for EC2
+	- Disk.
+	- CPU.
+	- network (high level).
+- Collect logs to send to [[CloudWatch]] logs.
+- Configuration via [[SSMParameterStore]].
 
 ### Metrics
-- CPU
-- DISK (io remianing)
-- RAM
-- NetStat
-- processes
-- swap space
+- **CPU** 
+	- active.
+	- Guest.
+	- Idle.
+	- System.
+	- User.
+	- Steal.
+- Disk Metrics
+	- free.
+	- Used.
+	- Total.
+- Disk IO
+	- writes.
+	- Reads.
+	- Bytes.
+	- Iops.
+- Netstat:
+	- Number of TCP connections.
+	- Number of UDP connections.
+	- Net packets.
+	- Bytes.
+- Processes
+	- total.
+	- Dead.
+	- Bloqued.
+	- Idle.
+	- Running.
+	- Sleep.
+- Swap Space:
+	- free.
+	- Used.
+	- Used %.
 
-## Cloudwatch Alarams
-- trigger notifications from any metric
+## CloudWatch Alarms
+- trigger notifications from any **metric** or filter.
 
 ### Stages
-- OK
-- Inssufficent Data
-- Alarm
+- OK.
+- Insufficient Data.
+- Alarm.
 
 ### Period
-- length of time to evaluate the metric
+- length of time to evaluate the metric.
 
 ### Targets
-- [[EC2]] instance actions (stop, terminate, reboot, revocer)
-- trigger [[ASG]]
-- [[SNS]]
+- [[EC2]] instance actions (stop, terminate, reboot, recover).
+- Trigger [[ASG]].
+- [[SNS]].
 
 ### Composite Alarms
-- multiple alarms combined (multi metric alaram)
-- And or OR conditions
+- multiple alarms combined (multi metric alarm).
+- And or conditions.
 
 ### [[EC2]] Instance recovery
-- Status Check
-- start recovery (move host but keep ips, metadata and placement groups)
+- Status Check.
+- start recovery (move host but keep **IPS**, metadata and placement groups).

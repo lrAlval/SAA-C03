@@ -100,7 +100,7 @@ AWS Created custom DB tech, very high performan. Useful for global and serverles
 
 ### Services
 - [[SageMaker]]
-- [[Comprehend]]
+- [[Amazon Comprehend]]
 
 ## Backups
 

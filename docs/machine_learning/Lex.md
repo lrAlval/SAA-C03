@@ -2,13 +2,19 @@
 # Lex
 
 ## TLDR
-Speech recognition. Same tech which powers Alexa.
+**Speech** **recognition**. Same tech which powers Alexa.
+
+## Features
+- Automatic Speech Recognition (ASR) to convert speech to text.
+- Natural Language.
+	- Recognizing the intent of text.
 
 ## How It Works
-- use speech recognition to convert to text
-- uses natural language understanding to extract meaning from text
+- Use speech recognition to **convert** to text.
+- Uses natural language understanding to extract meaning from text.
 
 ## Use Cases
-- helps 
-- chatbots
-- call center bots
+- helps.
+- **Chatbots**.
+- Call center **bots**.
+![[Pasted image 20230606143002.png]]
