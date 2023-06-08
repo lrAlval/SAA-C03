@@ -17,7 +17,7 @@
 - integrate with other auth systems 
 	- [[Cognito]], 
 	- Lightweight Directory Access Protocol (LDAP)
-	- [[AWSAD]]
+	- [[AD]]
 	- Microsoft Active Directory 
 	- Okta
 	

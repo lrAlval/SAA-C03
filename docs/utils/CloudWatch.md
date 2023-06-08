@@ -74,7 +74,7 @@ Central service for all logs and metrics in AWS.
 
 ### Insights
 - query logs for dashboard
-- query engine, not real-time.
+- Query engine, ***NOT Real-time***.
 - Can query multiple  log groups in different AWS accounts.
 - Auto discovers fields from AWS services and JSON log events.
 
