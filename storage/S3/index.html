@@ -1,0 +1,2159 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../RDS/" rel="prev"/>
+<link href="../Storage%20Comparison/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.15" name="generator"/>
+<title>S3 - AWS Certified Solutions Architect – Associate - Notes</title>
+<link href="../../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="orange" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#amazon-s3">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="AWS Certified Solutions Architect – Associate - Notes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="AWS Certified Solutions Architect – Associate - Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            AWS Certified Solutions Architect – Associate - Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              S3
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="orange" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="pink" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="orange" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/lrAlval/SAA-C03" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="AWS Certified Solutions Architect – Associate - Notes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="AWS Certified Solutions Architect – Associate - Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    AWS Certified Solutions Architect – Associate - Notes
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/lrAlval/SAA-C03" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        SAACO3
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Access
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Access
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../access/CLI/">
+        CLI
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../access/CloudShell/">
+        CloudShell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../access/EC2InstanceConnect/">
+        EC2InstanceConnect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../access/IAM/">
+        IAM
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../access/SSM/">
+        SSM
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Architecture samples
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Architecture samples
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          Serverless
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Serverless
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture_samples/serverless/Micro%20Services/">
+        Micro Services
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture_samples/serverless/MyBlog.com/">
+        MyBlog.com
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture_samples/serverless/MyTodoList/">
+        MyTodoList
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Computing
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Computing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/AMI/">
+        AMI
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/AppRunner/">
+        AppRunner
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/Batch/">
+        Batch
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/EC2/">
+        EC2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/ElasticBeanstalk/">
+        ElasticBeanstalk
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/ElasticTranscoder/">
+        ElasticTranscoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/Lambda/">
+        Lambda
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/Proton/">
+        Proton
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+          Containers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_9">
+<span class="md-nav__icon md-icon"></span>
+          Containers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/Containers/Amazon%20Elastic%20Container%20Registry%28ECR%29/">
+        Amazon Elastic Container Registry(ECR)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/Containers/ECS/">
+        ECS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/Containers/EKS/">
+        EKS
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Corporate
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Corporate
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../corporate/AD/">
+        AD
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../corporate/AWS%20Connect/">
+        AWS Connect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../corporate/AWS%20Organizations/">
+        AWS Organizations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../corporate/Cognito/">
+        Cognito
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../corporate/ControlTower/">
+        ControlTower
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../corporate/IdentityCenter/">
+        IdentityCenter
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../corporate/SystemsManager/">
+        SystemsManager
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Cost management
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Cost management
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cost_management/AWSBilling/">
+        AWSBilling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cost_management/ComputeOptimizer/">
+        ComputeOptimizer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cost_management/CostAllocationTags/">
+        CostAllocationTags
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cost_management/CostExplorer/">
+        CostExplorer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cost_management/SavingsPlans/">
+        SavingsPlans
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cost_management/TrustedAdvisor/">
+        TrustedAdvisor
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Data transfer
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Data transfer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/AWS%20Transfer%20Family/">
+        AWS Transfer Family
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/AppFlow/">
+        AppFlow
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/DirectConnect/">
+        DirectConnect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/StorageGateway/">
+        StorageGateway
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/VPN/">
+        VPN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/VirtualInterfaces/">
+        VirtualInterfaces
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_7" id="__nav_7_7_label" tabindex="0">
+          Data migration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_7">
+<span class="md-nav__icon md-icon"></span>
+          Data migration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/data_migration/ADS/">
+        ADS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/data_migration/DMS/">
+        DMS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/data_migration/DataSync/">
+        DataSync
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/data_migration/MGN/">
+        MGN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_transfer/data_migration/Snow/">
+        Snow
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Essentials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          Essentials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/AWS%20Global%20Infrastructure/">
+        AWS Global Infrastructure
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/Cloud%20Computing%20Fundamentals/">
+        Cloud Computing Fundamentals
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/Cloud%20Service%20Models/">
+        Cloud Service Models
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/Encryption%20101/">
+        Encryption 101
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/Message%20Delivery%20Reliability/">
+        Message Delivery Reliability
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/Most%20used%20ports/">
+        Most used ports
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/Networking%20Refresher/">
+        Networking Refresher
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/RPO%20%26%20RTO/">
+        RPO &amp; RTO
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/Resilience%20concepts/">
+        Resilience concepts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../essentials/Shared%20Responsibility%20Model/">
+        Shared Responsibility Model
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Machine learning
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Machine learning
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/AWS%20Kendra/">
+        AWS Kendra
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/AWS%20Rekognition/">
+        AWS Rekognition
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Amazon%20Comprehend/">
+        Amazon Comprehend
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Amazon%20Polly/">
+        Amazon Polly
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Amazon%20Transcribe/">
+        Transcribe
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Amazon%20Translate/">
+        Amazon Translate
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Forecast/">
+        Forecast
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Lex/">
+        Lex
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Machine%20Learning%20Summary/">
+        Machine Learning Summary
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Personalize/">
+        Personalize
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/QuickSight/">
+        QuickSight
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/SageMaker/">
+        SageMaker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../machine_learning/Texttract/">
+        Texttract
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          Messaging
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          Messaging
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Amazon%20MQ/">
+        Amazon MQ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Amazon%20Managed%20Streaming%20for%20Apache%20Kafka%20%28MSK%29/">
+        Amazon Managed Streaming
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/EventBride/">
+        EventBride
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Pinpoint/">
+        Amazon Pinpoint
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/SES/">
+        Simple Email Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/SNS/">
+        SNS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/SQS/">
+        SQS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/SWF/">
+        Simple Workflow
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
+          Kinesis
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_9">
+<span class="md-nav__icon md-icon"></span>
+          Kinesis
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Kinesis/Kinesis%20Data%20Analytics/">
+        Kinesis Data Analytics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Kinesis/Kinesis%20Data%20Firehose/">
+        Kinesis Data Firehose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Kinesis/Kinesis%20Data%20Stream/">
+        Kinesis Data Stream
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Kinesis/Kinesis%20Stream%20vs%20Firehose/">
+        Kinesis Stream vs Firehose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Kinesis/Kinesis/">
+        Kinesis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../messaging/Kinesis/SQS%20vs%20SNS%20vs%20Kinesis/">
+        SQS vs SNS vs Kinesis
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          Networks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Networks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../networks/AWS%20Global%20Accelerator%20vs%20Cloudfront/">
+        AWS Global Accelerator vs Cloudfront
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../networks/GlobalAccelerator/">
+        AWS Global Accelerator
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../networks/NAT/">
+        NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../networks/Route53/">
+        Route53
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../networks/VPC/">
+        VPC
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          Scalabily
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          Scalabily
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../scalabily/APIGateway/">
+        Api Gateway
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../scalabily/ASG/">
+        ASG
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../scalabily/ELB/">
+        ELB
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../scalabily/Resilience/">
+        Resilience
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../scalabily/StepFunction/">
+        StepFunction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/ACM/">
+        AWS Certifacte Manager
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/AWSShield/">
+        AWSShield
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/FireWallManager/">
+        FireWallManager
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/GuardDuty/">
+        GuardDuty
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/HSM/">
+        HSM
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/Inspector/">
+        Inspector
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/KMS/">
+        AWS Key Managed Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/Macie/">
+        Amazon Macie
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/NetworkFirewall/">
+        NetworkFirewall
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/SSMParameterStore/">
+        Systems Manager Parameter Store
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/STS/">
+        Security Token Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/SecretsManager/">
+        Secrets Manager
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/SecurityGroup/">
+        SecurityGroup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/WAF/">
+        WAF
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Amazon%20DocumentDB/">
+        Amazon DocumentDB
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Amazon%20Keyspaces/">
+        Keyspaces for apache Cassandra
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Amazon%20QLDB/">
+        Quantum Ledger Database
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Amazon%20Redshift/">
+        Features
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Amazon%20Timestream/">
+        Timestream
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Aurora/">
+        Aurora
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Database%20Comparison/">
+        Database Comparison
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DynamoDB/">
+        DynamoDB
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LakeFormation/">
+        Lake Formation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../OpenSearch/">
+        OpenSearch
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../RDS/">
+        RDS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          S3
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        S3
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-vs-ebs">
+    S3 vs EBS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requester-pays">
+    Requester Pays
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-event-notifications">
+    S3 event notifications
+  </a>
+<nav aria-label="S3 event notifications" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#targets">
+    Targets
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-access-logs">
+    S3 Access Logs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mfa-protected-api-access">
+    MFA-protected API Access
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mfa-delete">
+    MFA delete
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#versioning">
+    Versioning
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+<nav aria-label="Commands" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-sync">
+    S3 Sync
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#storage-classes">
+    Storage classes
+  </a>
+<nav aria-label="Storage classes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-standard">
+    S3 Standard
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-standard-ia">
+    S3 Standard-IA
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#one-zone-ia">
+    One Zone-IA
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-glacier-instant-retrieval">
+    S3 Glacier Instant Retrieval
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-glacier-flexible-retrieval">
+    S3 Glacier Flexible Retrieval
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provisoned-retrival-capacity">
+    Provisoned Retrival Capacity
+  </a>
+<nav aria-label="Provisoned Retrival Capacity" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#glacier-deep-archive">
+    Glacier Deep Archive
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#livecycle-rules">
+    Livecycle Rules
+  </a>
+<nav aria-label="Livecycle Rules" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transiton-actions">
+    Transiton Actions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transfer-limitations-for-livecycle-rules">
+    Transfer Limitations for Livecycle Rules
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expiration-actions">
+    Expiration Actions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tranfer-accelerator">
+    Tranfer Accelerator
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multipard-uploads">
+    Multipard uploads
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-bucket-policies">
+    S3 Bucket Policies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acl">
+    ACL
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-replication">
+    S3 Replication
+  </a>
+<nav aria-label="S3 Replication" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-use-replication">
+    Why use replication
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Storage%20Comparison/">
+        Storage Comparison
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_14_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14_14" id="__nav_14_14_label" tabindex="0">
+          AWS FSx
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_14_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_14_14">
+<span class="md-nav__icon md-icon"></span>
+          AWS FSx
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../AWS%20FSx/Amazon%20FSx%20Open%20ZFS/">
+        Amazon FSx Open ZFS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../AWS%20FSx/FSxLustre/">
+        Amazon FSx for Lustre
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../AWS%20FSx/FSxWindowsFileServer/">
+        Amazon FsX for Windows File Server
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../AWS%20FSx/Fsx%20Comparison/">
+        Fsx Comparison
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../AWS%20FSx/FsxNetApp%20ONTAP/">
+        FsxNetApp ONTAP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_14_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14_15" id="__nav_14_15_label" tabindex="0">
+          Block Storage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_15_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_14_15">
+<span class="md-nav__icon md-icon"></span>
+          Block Storage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Block%20Storage/EBS/">
+        EBS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Block%20Storage/EFS/">
+        EFS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Block%20Storage/EFSvEBS/">
+        Choose a volume
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Block%20Storage/InstanceStore/">
+        EC2 Instance Store
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_14_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14_16" id="__nav_14_16_label" tabindex="0">
+          Cache
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_16_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_14_16">
+<span class="md-nav__icon md-icon"></span>
+          Cache
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Cache/ElastiCache/">
+        ElastiCache
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Cache/Memcached/">
+        Memcached
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Cache/Redis/">
+        Redis
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+          Utils
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+          Utils
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/ACM/">
+        AWS Certificate Manager
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/AWS%20CloudFront/">
+        CloudFront
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/AWSConfig/">
+        TL;DR
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/Amazon%20Athena/">
+        Athena
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/Backup/">
+        Backup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/CloudFront%20vs%20S3%20Cross%20Region%20Replication/">
+        CloudFront vs S3 Cross Region Replication
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/CloudTrail/">
+        Could Trail for Cloud Watch
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/CloudWatch/">
+        CloudWatch
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/Cloudformation/">
+        Cloudformation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/EMR/">
+        Elastic Map Reduce
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/Glue/">
+        AWS Glue
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/OnPremise/">
+        On Premise options
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          Well architected framework
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_16_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+          Well architected framework
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../well_architected_framework/Pillars/">
+        Pillars
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../well_architected_framework/Principles/">
+        Principles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-vs-ebs">
+    S3 vs EBS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requester-pays">
+    Requester Pays
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-event-notifications">
+    S3 event notifications
+  </a>
+<nav aria-label="S3 event notifications" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#targets">
+    Targets
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-access-logs">
+    S3 Access Logs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mfa-protected-api-access">
+    MFA-protected API Access
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mfa-delete">
+    MFA delete
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#versioning">
+    Versioning
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+<nav aria-label="Commands" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-sync">
+    S3 Sync
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#storage-classes">
+    Storage classes
+  </a>
+<nav aria-label="Storage classes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-standard">
+    S3 Standard
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-standard-ia">
+    S3 Standard-IA
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#one-zone-ia">
+    One Zone-IA
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-glacier-instant-retrieval">
+    S3 Glacier Instant Retrieval
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-glacier-flexible-retrieval">
+    S3 Glacier Flexible Retrieval
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provisoned-retrival-capacity">
+    Provisoned Retrival Capacity
+  </a>
+<nav aria-label="Provisoned Retrival Capacity" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#glacier-deep-archive">
+    Glacier Deep Archive
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#livecycle-rules">
+    Livecycle Rules
+  </a>
+<nav aria-label="Livecycle Rules" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transiton-actions">
+    Transiton Actions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transfer-limitations-for-livecycle-rules">
+    Transfer Limitations for Livecycle Rules
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expiration-actions">
+    Expiration Actions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tranfer-accelerator">
+    Tranfer Accelerator
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multipard-uploads">
+    Multipard uploads
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-bucket-policies">
+    S3 Bucket Policies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acl">
+    ACL
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3-replication">
+    S3 Replication
+  </a>
+<nav aria-label="S3 Replication" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-use-replication">
+    Why use replication
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<p><img alt="Pasted image 20221101113016.png" src="../../attachments/Pasted%20image%2020221101113016.png"/></p>
+<h1 id="amazon-s3">Amazon S3<a class="headerlink" href="#amazon-s3" title="Permanent link">¶</a></h1>
+<ul>
+<li>object based storage</li>
+<li>max storage 5 TB</li>
+<li>if uploading more than 5gb use multi upload</li>
+<li>also has metadata, tags and optional version id</li>
+<li>private by default</li>
+<li>read after write consistency</li>
+<li>3,5k writes and 5k puts per second</li>
+</ul>
+<h2 id="s3-vs-ebs">S3 vs <a href="../Block%20Storage/EBS/">EBS</a><a class="headerlink" href="#s3-vs-ebs" title="Permanent link">¶</a></h2>
+<p><img alt="Pasted image 20230517135805.png" src="../../attachments/Pasted%20image%2020230517135805.png"/></p>
+<h2 id="requester-pays">Requester Pays<a class="headerlink" href="#requester-pays" title="Permanent link">¶</a></h2>
+<ul>
+<li>Requester pays network and downloads cost</li>
+<li>use to share large data sets with other accounts</li>
+<li>user must be authorized in AWS </li>
+</ul>
+<h2 id="s3-event-notifications">S3 event notifications<a class="headerlink" href="#s3-event-notifications" title="Permanent link">¶</a></h2>
+<ul>
+<li>trigger an action (lambda) on api request to the bucket</li>
+<li>can also use event bride for more targets and filters<ul>
+<li><strong>Event Bridge</strong> Capabilities - Archive, replay events, reliable delivery</li>
+<li>Multiple destinations - Step Functions, Kinesis Streams / Firehose</li>
+</ul>
+</li>
+</ul>
+<h3 id="targets">Targets<a class="headerlink" href="#targets" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="../../computing/Lambda/">Lambda</a></li>
+<li><a href="../../messaging/SNS/">SNS</a> </li>
+<li><a href="../docs/messaging/SQS.md">docs/messaging/SQS</a></li>
+<li><a href="../../messaging/EventBride/">EventBride</a></li>
+<li>can take more than 1 min to trigger</li>
+</ul>
+<h2 id="s3-access-logs">S3 Access Logs<a class="headerlink" href="#s3-access-logs" title="Permanent link">¶</a></h2>
+<ul>
+<li>monitor traffic requests to an S3 bucket</li>
+<li>can be used for access and security audits</li>
+<li>understand s3 bill</li>
+</ul>
+<h2 id="mfa-protected-api-access">MFA-protected API Access<a class="headerlink" href="#mfa-protected-api-access" title="Permanent link">¶</a></h2>
+<ul>
+<li>enforce MFA for access to S3 resources</li>
+</ul>
+<h2 id="mfa-delete">MFA delete<a class="headerlink" href="#mfa-delete" title="Permanent link">¶</a></h2>
+<ul>
+<li>enforce MFA for delete object action</li>
+</ul>
+<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">¶</a></h2>
+<ul>
+<li>once <strong>object versioning is enabled</strong> , <strong>it can't be disabled</strong> - only suspended<ul>
+<li>when versioning is enabled each object has a <ul>
+<li>key = name &amp; id incremental int</li>
+<li>by default uses "delete marker" (soft delete that hides all prev versions)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>when object versioning is <strong>suspended</strong> , <strong>AWS still charges</strong> you for all the <strong>object versions previously generated</strong>.</li>
+<li>if an object is updated the old version still persists within the bucket</li>
+<li>if an object is deleted the new version will be a delete marker, and the old version will still persist within the bucket</li>
+</ul>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">¶</a></h2>
+<h3 id="s3-sync">S3 Sync<a class="headerlink" href="#s3-sync" title="Permanent link">¶</a></h3>
+<ul>
+<li>copies objects between buckets</li>
+<li>does diff</li>
+<li>used last modified to update</li>
+<li>if versioned only copies current version
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>s3://DOC-EXAMPLE-BUCKET-SOURCE<span class="w"> </span>s3://DOC-EXAMPLE-BUCKET-TARGET
+</code></pre></div></li>
+</ul>
+<h2 id="storage-classes">Storage classes<a class="headerlink" href="#storage-classes" title="Permanent link">¶</a></h2>
+<ul>
+<li>can transition to infrequent access only after 30 days</li>
+<li>all classes have 99.99% availability and Durability (11 9's Durability)</li>
+<li>EXCEPT One Zone IA (99,5 Availability, 11 9's Durability)</li>
+</ul>
+<p>| Storage Class                |Life cycle | Use Cases                                                 | Minimum Capacity Charge | Minimum Storage Duration Charge | Retrieval Fee | First Byte Latency | Availability Zones Supported   |
+|------------------------------|-----------------------------------------------------------|-------------------------|--------------------------------|----------------|--------------------|--------------------------------------------|
+| S3 Standard                  | &gt; * (all other s3 storage tiers) | <strong>Frequently</strong> accessed data that requires low-latency.         | None                    | None                           | None           | Milliseconds       | At least 3      |
+| S3 Standard-IA               | &gt; Intelligent-Tiering &gt; * | Backups, disaster recovery, and infrequently accessed data | 128 KB                  | 30 days                       | Per Gb        | Milliseconds       | At least 3                     |
+| S3 Intelligent-Tiering       | &gt; One Zone-IA &gt; * | Data with changing access patterns or unpredictable usage | None                    | 30 days                       | None           | Milliseconds       | At least 3                     |
+| S3 One Zone-IA               | Glacier Flexible Retrieval &gt; * | Storing secondary backups or replicas of easily reproduced data | 128 KB                  | 30 days                       | Per Gb        | Milliseconds       | Single Availability Zone  |
+| S3 Glacier                   | Glacier Flexible Retrieval &gt; * | Archiving rarely accessed data with long-term retention    | 40 KB                   | 90 days                       | Per Gb        | Minutes to hours   | At least 3                     |
+| S3 Glacier Instant Retrieval | Glacier Flexible Retrieval &gt; * | Rapid access to archived data with a slight increase in cost | 40 KB                   | 90 days                       | Per Gb        | Milliseconds       | At least 3                   |
+| S3 Glacier Flexible Retrieval| Glacier Deep Archive | Bulk retrieval of large amounts of data with lower costs    | 40 KB                   | 90 days                       | Per Gb        | Minutes to hours   | At least 3                     |
+| S3 Glacier Deep Archive      | No transitions | <strong>Long-term data</strong> retention with <strong>extremely</strong> <strong>low-cost requirements</strong> | 40 KB         | 180 days                      | Per Gb        | 12 hours - 48 hour   | At least 3                |
+| S3 Outposts                  | No transitions | <strong>Hybrid</strong> <strong>cloud</strong> storage <strong>extending</strong> S3 to <strong>on-premises</strong> infrastructure | None        | None                           | None           | Milliseconds       | Depends on the Outpost configuration  |</p>
+<table>
+<thead>
+<tr>
+<th>Storage Class</th>
+<th>Use Cases</th>
+<th>Ideal Use Case Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S3 Standard</td>
+<td>-Frequently accessed data.<br/>-Important data<br/>-Non replaceable</td>
+<td>Dynamic website content, mobile applications, real-time analytics, content distribution</td>
+</tr>
+<tr>
+<td>S3 Intelligent-Tiering</td>
+<td>-long-lived data, with changing or unknow patterns</td>
+<td>Data with varying access frequencies, cost optimization for unknown access patterns</td>
+</tr>
+<tr>
+<td>S3 Standard-IA</td>
+<td>-Long lived data<br/>-Infrequent accessed data</td>
+<td>Long-term storage of infrequently accessed data, compliance and regulatory data</td>
+</tr>
+<tr>
+<td>S3 One Zone-IA</td>
+<td>-Long lived data<br/>-Infrequent<br/>-NON-Critical data<br/>-Replaceable data</td>
+<td>Secondary copies of on-premises data, transitional data or short-term storage</td>
+</tr>
+<tr>
+<td>S3 Glacier Instant Retrieval</td>
+<td>-Long lived data<br/>-rarely accessed e.g once per qrt.</td>
+<td>Rapid retrieval of archived data for urgent access or frequent retrieval</td>
+</tr>
+<tr>
+<td>S3 Glacier Flexible Retrieval</td>
+<td>-archival data where <strong>frequent</strong> or <strong>realtime</strong> access <em>isn't needed</em> (e.g yearly)</td>
+<td>Bulk retrieval of large datasets, data migration, data analysis</td>
+</tr>
+<tr>
+<td>S3 Glacier Deep Archive</td>
+<td>-archival data that rearly if ever needs to be accessed (e.g Legal or regulation data storage)</td>
+<td>Long-term data archiving, digital preservation, compliance data</td>
+</tr>
+<tr>
+<td>S3 Outposts</td>
+<td>Hybrid cloud storage extending S3 to on-premises infrastructure</td>
+<td>Hybrid cloud environments, applications with data residency requirements</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s3-standard">S3 Standard<a class="headerlink" href="#s3-standard" title="Permanent link">¶</a></h3>
+<ul>
+<li>Default AWS storage class that's used in S3, should be user <strong>default</strong> as well.</li>
+<li>S3 Standard is region resilient, and can tolerate the failure of an AZ.</li>
+<li>can transition to <strong>all s3 tiers</strong>.</li>
+<li>Objects are replicated to at least 3+ <strong>AZs</strong> when they are uploaded.</li>
+<li>99.999999999% durability</li>
+<li>99.99% availability</li>
+<li><strong>Offers low latency and high throughput.</strong></li>
+<li>No minimums, <strong>delays</strong>, or <strong>penalties</strong>.</li>
+<li>Billing is <strong>storage fee</strong>, <strong>data transfer fee</strong>, and <strong>request based charge</strong>.</li>
+</ul>
+<p>All of the other storage classes trade some of these compromises for another.</p>
+<h3 id="s3-standard-ia">S3 Standard-IA<a class="headerlink" href="#s3-standard-ia" title="Permanent link">¶</a></h3>
+<p>Designed for data that isn't accessed often, long term storage, backups, disaster recovery files. The requirement for data to be safe is most important.</p>
+<ul>
+<li>Designed for less frequent rapid access when it is needed.</li>
+<li>can transition to:<ul>
+<li>S3 Intelligent Tiering</li>
+<li>One Zone IA</li>
+<li>Glacier Instant retrieval</li>
+<li>Glacier Flexible retrieval </li>
+<li>Glacier Deep Archive.</li>
+</ul>
+</li>
+<li>Cheaper rate to store data you will rarely need, but if you do need it, you need it quickly.</li>
+<li><strong>~54% cheaper</strong> than <strong>S3 standard</strong>.</li>
+<li>Minimum 128KB charge for each object.<ul>
+<li>Cost benefits might be negated for smaller objects.</li>
+</ul>
+</li>
+<li>30 days minimum duration charge per object.</li>
+<li>Retrieval fee for every GB of data retrieved from this class.</li>
+<li>99.9% availability, slightly lower than standard S3.</li>
+</ul>
+<h3 id="one-zone-ia">One Zone-IA<a class="headerlink" href="#one-zone-ia" title="Permanent link">¶</a></h3>
+<p>Great choice for secondary copies of primary data or backup copies.</p>
+<p>If data is easily creatable from a primary data set, this would be a great place to store the output from another data set.</p>
+<ul>
+<li>Designed for data that is accessed less frequently but needed quickly.</li>
+<li>can transition to <strong>Glacier Flexible retrieval &amp; Glacier Deep Archive</strong>.</li>
+<li><strong>80%</strong> of the base cost of Standard-IA.</li>
+<li>Same minimum size and duration fee as Standard-IA</li>
+<li>Data is only stored in a single AZ, no 3+ AZ replication.</li>
+<li>99.5% availability, lower than Standard-IA</li>
+</ul>
+<h3 id="s3-glacier-instant-retrieval">S3 Glacier Instant Retrieval<a class="headerlink" href="#s3-glacier-instant-retrieval" title="Permanent link">¶</a></h3>
+<p>Suitable for applications that require <strong>infrequent access</strong> to <strong>archived data</strong> but need <strong>fast retrieval</strong> times when accessed.</p>
+<ul>
+<li>Like <strong>S3-Standard-IA</strong> .. cheaper storage, more expensive retrieval , longer minimum.</li>
+<li>can transition to <strong>Glacier Flexible retrieval &amp; Glacier Deep Archive</strong>.</li>
+<li>Has per <strong>GB data retrieval fee</strong>, <strong>cost increases</strong> with <strong>frequent data access</strong>.</li>
+<li>should be used for <strong>long-lived data</strong>, accessed <strong>once per qtr</strong> with <strong>millisecond access.</strong></li>
+<li>Minimum duration charge of <strong>90 days</strong>, objects can be stored for less but min billing <strong>always applies</strong>.</li>
+<li>Minimum capacity charge of <strong>128 kb</strong> per object.</li>
+</ul>
+<h3 id="s3-glacier-flexible-retrieval">S3 Glacier Flexible Retrieval<a class="headerlink" href="#s3-glacier-flexible-retrieval" title="Permanent link">¶</a></h3>
+<p>Archival data where frequent or realtime access isn't needed (e.g <strong>yearly</strong>) <strong>Minutes to hours retrieval</strong>.</p>
+<ul>
+<li>can transition to Glacier <strong>Deep archive</strong>.</li>
+<li><strong>faster</strong> data retrieval, with retrieval times of minutes.</li>
+<li>Minimum duration charge of <strong>90 days</strong>, objects can be stored for less but min billing <strong>always applies</strong>.</li>
+<li>Minimum capacity charge of <strong>40 kb</strong> per object.</li>
+<li>objects <strong>cannot be made publicly accessible</strong><ul>
+<li>any access of data(beyond object metadata) requires a <strong>retrieval process</strong>.</li>
+</ul>
+</li>
+<li><strong>Retrieval Process</strong> first retrieves the data to <strong>S3 Standard-IA</strong> temporarly.</li>
+<li><strong>Retrieval Process</strong> offers three retrieval options which vary in speeds:<ul>
+<li><strong>Expedited</strong>: Data retrieval (1-5 mins)</li>
+<li><strong>Standard</strong>: (3-5 hours)</li>
+<li><strong>Bulk</strong>: (5-12 hours)</li>
+</ul>
+</li>
+<li>Faster = More Expensive <strong>$ $ $</strong></li>
+</ul>
+<h3 id="provisoned-retrival-capacity">Provisoned Retrival Capacity<a class="headerlink" href="#provisoned-retrival-capacity" title="Permanent link">¶</a></h3>
+<ul>
+<li>guranteed up to 150mbs retrival speed</li>
+</ul>
+<h4 id="glacier-deep-archive">Glacier Deep Archive<a class="headerlink" href="#glacier-deep-archive" title="Permanent link">¶</a></h4>
+<p><strong>Archival data</strong> that rarely if ever needs to be accessed - hours or days for retrieval.</p>
+<ul>
+<li><strong>Retrieval Process</strong> first retrieves the data to <strong>S3 Standard-IA</strong> temporarly.</li>
+<li><strong>Retrieval Process</strong> offers three retrieval options which vary in speeds:<ul>
+<li><strong>Standard</strong>: Data retrieval (12 hours)</li>
+<li><strong>Bulk</strong>: (up to 48 hours)</li>
+</ul>
+</li>
+<li>First byte latency = <strong>hours</strong> or <strong>days</strong></li>
+<li>Objects <strong>cannot be made publicly</strong> accessible <ul>
+<li>any access of data (beyond object metadata) requires a retrieval process.</li>
+</ul>
+</li>
+</ul>
+<h2 id="livecycle-rules">Livecycle Rules<a class="headerlink" href="#livecycle-rules" title="Permanent link">¶</a></h2>
+<h3 id="transiton-actions">Transiton Actions<a class="headerlink" href="#transiton-actions" title="Permanent link">¶</a></h3>
+<ul>
+<li>move to diffrent storage tier after time</li>
+<li>can transition to infrequent access only after 30 days</li>
+<li>Automates the moving of objects between the different storage tiers.</li>
+<li>Can be used in conjunction with versioning.</li>
+<li>Lifecycle rules can be applied to both current and previous versions of an object.</li>
+<li>
+<p>These actions can be classified as follows:</p>
+<ul>
+<li>
+<p><strong>Transition actions</strong> – In which you define when objects transition to another storage class. For example, you may choose to transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation, or archive objects to the GLACIER storage class one year after creation.</p>
+</li>
+<li>
+<p><strong>Expiration actions</strong> – In which you specify when the objects expire. Then Amazon S3 deletes the expired objects on your behalf.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="transfer-limitations-for-livecycle-rules">Transfer Limitations for Livecycle Rules<a class="headerlink" href="#transfer-limitations-for-livecycle-rules" title="Permanent link">¶</a></h3>
+<p><img alt="Pasted image 20221101123650.png" src="../../attachments/Pasted%20image%2020221101123650.png"/></p>
+<h3 id="expiration-actions">Expiration Actions<a class="headerlink" href="#expiration-actions" title="Permanent link">¶</a></h3>
+<ul>
+<li>delte access logs</li>
+<li>delete old versions of files</li>
+<li>delte incomplete multi part uploads</li>
+<li>can apply to paths or full bucket</li>
+</ul>
+<h2 id="tranfer-accelerator">Tranfer Accelerator<a class="headerlink" href="#tranfer-accelerator" title="Permanent link">¶</a></h2>
+<p>reqs:
+    - bucket needs to be enabled
+    - bucket name can't containt periods in the name
+    - bucket name needs to be DNS compatible
+- fast transfer over long distances
+- uses cloudfront edge locations
+- routes via optimized path</p>
+<h2 id="multipard-uploads">Multipard uploads<a class="headerlink" href="#multipard-uploads" title="Permanent link">¶</a></h2>
+<ul>
+<li>transmit object in chuncks</li>
+<li>if one chunk fails, only that cuck needs to be retransmitted</li>
+<li>over 100mb should be considered</li>
+<li>10 000 max parts, each part can range : 5mb - 5 Gb</li>
+<li>last part can be smaller than 5 Mb</li>
+<li>parts can fail and be restarted.</li>
+<li>improved throughput</li>
+</ul>
+<h2 id="s3-bucket-policies">S3 Bucket Policies<a class="headerlink" href="#s3-bucket-policies" title="Permanent link">¶</a></h2>
+<ul>
+<li>add or deny permissions to objects</li>
+<li>can be attached to users groups or buckets</li>
+<li>can grant access to other aws accounts</li>
+<li>can restrict based on multi coditions for the requets (ip, time, ssl )</li>
+</ul>
+<h2 id="acl">ACL<a class="headerlink" href="#acl" title="Permanent link">¶</a></h2>
+<ul>
+<li>can also use ACL to grant another account access</li>
+</ul>
+<h2 id="s3-replication">S3 Replication<a class="headerlink" href="#s3-replication" title="Permanent link">¶</a></h2>
+<p>There are two types of S3 replication available.</p>
+<ul>
+<li>Cross-Region Replication (CRR)<ul>
+<li>Allows the replication of objects from a source bucket to a destination bucket in <strong>different</strong> AWS regions.</li>
+</ul>
+</li>
+<li>Same-Region Replication (SRR)<ul>
+<li>Allows the replication of objects from a source bucket to a destination bucket in the <strong>same</strong> AWS region.</li>
+</ul>
+</li>
+</ul>
+<h4 id="why-use-replication">Why use replication<a class="headerlink" href="#why-use-replication" title="Permanent link">¶</a></h4>
+<ul>
+<li>SRR </li>
+<li>Log Aggregation SRR </li>
+<li>Sync production and test accounts SRR </li>
+<li>Resilience with strict Sovereignty requirements CRR </li>
+<li>Global resilience improvements CRR </li>
+<li>Latency reduction</li>
+<li>must have versioning in both buckets</li>
+<li>can be cross region or same region</li>
+<li>can be bucket in other account</li>
+<li>async</li>
+<li>use batch replication to replicate existing ones</li>
+<li>can't chain replication</li>
+</ul>
+<h1 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">¶</a></h1>
+<p>Buckets aren't encrypted, <strong>objects are</strong>. Multiple objects in a bucket can use a different encryption methods.</p>
+<h4 id="client-side-encryption">Client-Side encryption<a class="headerlink" href="#client-side-encryption" title="Permanent link">¶</a></h4>
+<ul>
+<li>Objects being <strong>encrypted</strong> by the client <strong>before</strong> <strong>they</strong> leave.</li>
+<li>Data being sent the whole time it is sent as cypher text.</li>
+<li>AWS has no way to see into the data.</li>
+<li>The <strong>encryption burden</strong> is on the <strong>customer</strong> and <strong>not</strong> <strong>AWS</strong>.</li>
+</ul>
+<h4 id="server-side-encryption">Server-Side encryption<a class="headerlink" href="#server-side-encryption" title="Permanent link">¶</a></h4>
+<ul>
+<li>Data is encrypted in transit using HTTPS</li>
+<li>Data inside the tunnel is still in its original unencrypted form.</li>
+<li>Data reaches S3 server in plain text form.</li>
+<li>After S3 sees the data, it is then encrypted.</li>
+<li>AWS will handle some or all of these processes.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Encryption Option</th>
+<th>Use case</th>
+<th>Customer Responsabilities</th>
+<th>AWS Responsibilities</th>
+<th>Tradeoffs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSE-S3-default</td>
+<td>- Provides encryption <strong>at rest</strong> using S3 <strong>managed keys</strong>.<br/> - provides no admin overhead.</td>
+<td>-No additional key management tasks required.</td>
+<td>-encryption.<br/>-decryption.<br/>-key management (generation &amp; rotation)</td>
+<td>-<strong>Limited control </strong> over the encryption keys.<br/> -Keys are <strong>managed by AWS</strong>.</td>
+</tr>
+<tr>
+<td>SSE-KMS</td>
+<td>- Provides  <strong>encryption at rest</strong> using AWS KMS <strong>managed keys</strong>.</td>
+<td>-Configure and manage the KMS keys</td>
+<td>-encryption.<br/>-decryption.<br/>-key management (generation &amp; rotation)</td>
+<td>-more control and additional security features through KMS.<br/> -<strong>Customer manages</strong> and controls the KMS keys.</td>
+</tr>
+<tr>
+<td>SSE-C (with Customer-Provided Keys)</td>
+<td>-flexible.<br/>-customer need to generate &amp; rotate keys themselves.<br/>- dont want to handle encryption and decrytion on client side.</td>
+<td>-Generate.<br/>-manage.<br/>- generate encryption keys.<br/>-rotate keys.</td>
+<td>-encryption.<br/>-decryption.<br/></td>
+<td>-allow to offload cpu usage on client side.<br/> - provides complete control and ownership of key management.<br/>-good for heavy regulated enviorments.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Pasted image 20230517155855.png" src="../../attachments/Pasted%20image%2020230517155855.png"/></p>
+<h3 id="server-side-encryption-with-amazon-s3-see-s3-aes-256-default">Server-side Encryption with Amazon S3 - SEE S3 (AES-256) - default<a class="headerlink" href="#server-side-encryption-with-amazon-s3-see-s3-aes-256-default" title="Permanent link">¶</a></h3>
+<ul>
+<li>aws managed keys</li>
+<li>Server Side encryption of objects </li>
+<li>aws manged</li>
+<li>replication by default</li>
+</ul>
+<h2 id="sse-s3-caveats">SSE-S3 Caveats<a class="headerlink" href="#sse-s3-caveats" title="Permanent link">¶</a></h2>
+<ul>
+<li>Not good for <strong>regulatory</strong> <strong>environment</strong> where keys and access must be controlled.</li>
+<li><strong>No control</strong> <strong>key</strong> material <strong>rotation</strong>.</li>
+<li><strong>No role separation</strong>. <ul>
+<li>A full <strong>S3</strong> <strong>admin</strong> can <strong>decrypt</strong> data <strong>and</strong> <strong>open</strong> objects.</li>
+</ul>
+</li>
+</ul>
+<h3 id="see-c">SEE-C<a class="headerlink" href="#see-c" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Customer</strong> is <strong>responsible</strong> for the <strong>keys</strong> themselves.</li>
+<li><strong>Customer</strong> still needs to <strong>generate</strong> and manage the key.</li>
+<li>can use same key for all objects or individual keys for every single <strong>object</strong>.</li>
+<li>S3 services manages the actual encryption and decryption<ul>
+<li><strong>Offloads</strong> <strong>CPU</strong> requirements for <strong>encryption</strong>.</li>
+</ul>
+</li>
+<li><strong>S3</strong> will see the <strong>unencrypted</strong> object <strong>throughout</strong> this process.</li>
+</ul>
+<h3 id="sse-kms">SSE KMS<a class="headerlink" href="#sse-kms" title="Permanent link">¶</a></h3>
+<ul>
+<li>Need to specify need key for object in new bucket</li>
+<li>need <strong>IAM role</strong> to decrypt with source key and encrypt with new key</li>
+<li>might get <a href="../../security/KMS/">KMS</a> throttling errors, need to ask for service quotas increase</li>
+<li>can use multi region kms keys </li>
+</ul>
+<h2 id="bucket-keys">Bucket keys<a class="headerlink" href="#bucket-keys" title="Permanent link">¶</a></h2>
+<ul>
+<li>offload some of the work when using in conjunction with <a href="../../security/KMS/">KMS</a></li>
+<li>cloud trail kms events now show the <strong>bucket</strong> not the <strong>object</strong></li>
+<li>works with <strong>replication</strong> .. the object encryption is maintained</li>
+<li>if replicating plaintext to a bucket using bucket keys the object is encrypted at the destination side (<strong>ETAG changes</strong>)</li>
+</ul>
+<h3 id="bucket-policies">Bucket Policies<a class="headerlink" href="#bucket-policies" title="Permanent link">¶</a></h3>
+<ul>
+<li>common use cases:<ul>
+<li>grant access to other AWS accounts</li>
+<li>anonymous access to a bucket.</li>
+</ul>
+</li>
+<li>Identity policies are limited to single owner account</li>
+<li>Resource Policy allow/deny same or different accounts<ul>
+<li>allow /deny anonymous principals</li>
+</ul>
+</li>
+</ul>
+<h3 id="security-hints">Security Hints<a class="headerlink" href="#security-hints" title="Permanent link">¶</a></h3>
+<p>hints to choose one over the other , based on the scenario.</p>
+<ul>
+<li>Identity: controlling dif resources</li>
+<li>Identity: you have a preference for IAM</li>
+<li>Identity: <strong>Same account</strong></li>
+<li>Bucket: when you need to only control the security of s3</li>
+<li>bucket: <strong>anonymnous</strong> or <strong>cross-account</strong></li>
+<li>ACLs: <strong>NEVER</strong> - unless you must </li>
+</ul>
+<h3 id="use-cases">Use cases<a class="headerlink" href="#use-cases" title="Permanent link">¶</a></h3>
+<ul>
+<li>compliance</li>
+<li>latency</li>
+<li>replication across accounts</li>
+<li>log aggregation</li>
+<li>sync data to test account from prod</li>
+</ul>
+<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>100-200ms</strong></li>
+<li>3,5k <strong>PUT/COPY/POST/DELETE</strong> prefix</li>
+<li>5,5k <strong>GET/HEAD</strong> per prefix</li>
+<li>use <strong>multi part upload</strong> for parallel upload<ul>
+<li>recommended for files &gt; <strong>100 MB</strong></li>
+<li>MUST use for files &gt; <strong>5Gb</strong></li>
+</ul>
+</li>
+<li>S3 <strong>transfer acceleration</strong> to upload to edge <strong>location</strong> instead of directly to s3, also use for download if files are bigger than <strong>1GB</strong></li>
+<li>byte range fetches <ul>
+<li><strong>parallelize</strong> GETs by requesting specific <strong>byte ranges</strong>.</li>
+<li>better resilience in case of failures - only retry small byte range</li>
+<li>allow to speed up downloads</li>
+<li>can be used to retrieve only partial data (e.g head of a file)</li>
+<li>multi part download</li>
+</ul>
+</li>
+</ul>
+<h2 id="select-glacier-select">Select &amp; Glacier Select<a class="headerlink" href="#select-glacier-select" title="Permanent link">¶</a></h2>
+<ul>
+<li>Retrieve less data <strong>using SQL</strong> by performing server-side filtering</li>
+<li>can filter by rows &amp; columns (simple SQL statements)</li>
+<li>less <strong>network transfer</strong> </li>
+<li>less <strong>CPU cost</strong> <strong>client-side</strong>.</li>
+<li>filter data server side to reduce network cost (<strong>100</strong> lines out of 1 mil lines csv)</li>
+</ul>
+<p><img alt="Pasted image 20230530185528.png" src="../../attachments/Pasted%20image%2020230530185528.png"/></p>
+<h2 id="batch-operations">Batch operations<a class="headerlink" href="#batch-operations" title="Permanent link">¶</a></h2>
+<ul>
+<li>modify all <strong>metadata</strong> and properties</li>
+<li><strong>copy</strong> objects between buckets</li>
+<li><strong>encrypt</strong> all <strong>unencrypted</strong> objects</li>
+<li>modify <strong>ACL</strong> and <strong>tags</strong></li>
+<li><strong>restore</strong> objects from glacier</li>
+<li>invoke <strong>lambda</strong> for each object</li>
+<li>use s3 <strong>select</strong> to filter then batch</li>
+<li>S3 Batch operations manages:<ul>
+<li><strong>retries</strong></li>
+<li><strong>tracks progress</strong></li>
+<li>sends completion notifications</li>
+<li>generate reports</li>
+</ul>
+</li>
+</ul>
+<h2 id="vault">Vault<a class="headerlink" href="#vault" title="Permanent link">¶</a></h2>
+<ul>
+<li>Objects can not be modified or deleted</li>
+<li>used for compliance</li>
+<li>Can lock the vault policy from future edits</li>
+</ul>
+<h2 id="server-access-logging">Server Access Logging<a class="headerlink" href="#server-access-logging" title="Permanent link">¶</a></h2>
+<ul>
+<li>If <a href="../../utils/CloudTrail/">CloudTrail</a> is not enough information you use this</li>
+</ul>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">¶</a></h3>
+<ul>
+<li>including referer</li>
+<li>including turn around time</li>
+</ul>
+<h2 id="pre-signed-urls">Pre-Signed URLs<a class="headerlink" href="#pre-signed-urls" title="Permanent link">¶</a></h2>
+<ul>
+<li>URL Expiration<ul>
+<li>S3 Console - 1 min  to 720 mins (12 hours)</li>
+<li>aws cli - 604800 secs - 168 hours (default 3600)</li>
+<li>users given a pre-signed url inherit the permissionso f the user that generated the url for GET / PUT.</li>
+</ul>
+</li>
+<li>use cases<ul>
+<li>Allow only logged-in users to download a premium video from your S3 bucket.</li>
+<li>allow an ever-changing list of users to download files by generating URLs dynamically.</li>
+<li>allow temporally a user to upload a file to a precise location in your s3 bucket.</li>
+</ul>
+</li>
+</ul>
+<h2 id="access-points-ap">Access Points (AP)<a class="headerlink" href="#access-points-ap" title="Permanent link">¶</a></h2>
+<ul>
+<li>simplify security management for s3 buckets</li>
+<li>each AP has<ul>
+<li>its own DNS name (Internet origin or VPC origin)</li>
+<li>an Access point policy (similar to a bucket policy) - <ul>
+<li>manage security at scale</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Pasted image 20230530151206.png" src="../../attachments/Pasted%20image%2020230530151206.png"/></p>
+<h1 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link">¶</a></h1>
+<ol>
+<li>Use the appropriate AWS Region:<ul>
+<li>Choose the AWS Region closest to your users or application to minimize latency and improve performance.</li>
+</ul>
+</li>
+<li>Select the right S3 storage class:<ul>
+<li>Choose the appropriate S3 storage class based on your data access patterns and requirements.</li>
+<li>For frequently accessed data, use S3 Standard or S3 Intelligent-Tiering.</li>
+<li>For infrequently accessed or long-term archival data, consider S3 Standard-IA, S3 One Zone-IA, or S3 Glacier.</li>
+</ul>
+</li>
+<li>Enable S3 Transfer Acceleration:<ul>
+<li>S3 Transfer Acceleration uses optimized edge locations to speed up data uploads and downloads.</li>
+<li>Enable it for faster transfer speeds, especially for large files or over long distances.</li>
+</ul>
+</li>
+<li>Optimize object key names:<ul>
+<li>Avoid using sequential or timestamp-based object key names as it can lead to performance limitations.</li>
+<li>Use a random or hashed naming pattern to distribute objects across multiple partitions for better performance.</li>
+</ul>
+</li>
+<li>Leverage S3 multipart upload:<ul>
+<li>For large file uploads (typically over 100 MB), use multipart upload to improve performance and resiliency.</li>
+<li>Multipart upload allows parallelization of upload parts and supports resumable uploads.</li>
+</ul>
+</li>
+<li>Enable S3 byte-range fetches:<ul>
+<li>For applications that need to retrieve partial objects, use byte-range fetches to fetch only the required portions of an object.</li>
+<li>This reduces the amount of data transferred, improving performance and reducing costs.</li>
+</ul>
+</li>
+<li>Enable S3 Transfer Manager:<ul>
+<li>Use the AWS SDK's S3 Transfer Manager to optimize file transfers by parallelizing the upload or download of multiple parts.</li>
+</ul>
+</li>
+<li>Utilize S3 Select and Glacier Select:<ul>
+<li>S3 Select allows you to retrieve only the required data from objects using SQL-like queries, reducing data transfer and processing time.</li>
+<li>Glacier Select enables data retrieval from S3 Glacier archives based on specific query criteria, reducing retrieval times.</li>
+</ul>
+</li>
+<li>Enable S3 Cross-Region Replication (CRR):<ul>
+<li>If you have users or applications in different regions, enable S3 CRR to replicate data across regions for faster access.</li>
+</ul>
+</li>
+<li>Monitor and optimize bucket performance:<ul>
+<li>Monitor S3 metrics, such as request latency, request rates, and data transfer rates, to identify performance bottlenecks.</li>
+<li>Consider adjusting bucket configurations, such as increasing provisioned throughput, to optimize performance.</li>
+</ul>
+</li>
+</ol>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
