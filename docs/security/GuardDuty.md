@@ -14,7 +14,7 @@ Ml based continues monitoring and thread detection service. Helps for Crypto exp
 ## Source to Analyse
 - [[CloudTrail]] Managment Events
 - [[CloudTrail]] [[S3]] Data events
-- [[VPC]] Flow Logs
+- [[docs/networks/VPC]] Flow Logs
 - DNS Logs
 - [[EKS]] Audit Logs
 

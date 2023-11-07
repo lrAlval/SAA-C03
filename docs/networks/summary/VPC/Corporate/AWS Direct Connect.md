@@ -1,0 +1,4 @@
+-  Uses **AWS backbone** network connections into the AWS Cloud and is high-bandwidth and low-latency.
+- **cost-effective if** transferring large volumes of data from your data center to AWS.
+- IN Transit NOT Encrypted by default.(can be enabled with IPSec site 2 site vpn over a **VIF**)
+- costly and requires additional telecom and hosting provider relationships 

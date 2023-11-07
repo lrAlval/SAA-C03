@@ -9,11 +9,11 @@
 ![[Pasted image 20230607185949.png]]
 
 ### Limitations 
-- **5k** IAM Users per account
+- **5k** **IAM** Users per account
 	- alternatives IAM Roles & Identity federation.
-- **IAM** User can be a member of up to **10** groups.
-- **300** Group Limit per account.
-	- This can be fixed with a **support ticket**.
+- **IAM** User can be a member of up to **10** **groups**.
+- **300** **Group** Limit per account.
+	- This can be **fixed** with a **support ticket**.
 - No nesting between **groups**.
 - No Limit of users in a **group**.
 - No default “***all-users-group***” that holds all users in **account**.

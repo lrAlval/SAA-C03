@@ -2,7 +2,7 @@
 # AWS Network Firewall
 
 ## TLDR
-Firewall for a [[VPC]]
+Firewall for a [[docs/networks/VPC]]
 
 ## Features
 - 1000s of rules

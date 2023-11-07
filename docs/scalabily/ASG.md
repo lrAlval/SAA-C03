@@ -5,15 +5,15 @@
 A Group of [[EC2]] Instances scaled horizontally, can use an [[ELB]] or work without it if there is no incoming traffic. Can use [[ELB]] or [[EC2]] health checks. Can also be used for [[ECS]] in which case it uses an ECS service as target.
 
 ## Features
-- scale horizontally
-- scale out and in
-	- scale out ⇾ add EC2 instances to match increased load
-	- scale in ⇾ remove EC2 instances to match decreased load
-- Ensure maximum and minimum ECS2 running
-- automatically register EC2 with load balancer
-- if instance is unhealthy it will be terminated and recreated
-- set desired capacity
-- must wait for **cooldown period** to expire to scale again
+- scale horizontally.
+- scale out and in:
+	- scale out ⇾ add EC2 instances to match increased load.
+	- scale in ⇾ remove EC2 instances to match decreased load.
+- Ensure maximum and minimum ECS2 running.
+- automatically register EC2 with load balancer.
+- if instance is unhealthy it will be terminated and recreated.
+- set desired capacity.
+- must wait for **cooldown period** to expire to scale again.
 ![[Pasted image 20230522194420.png]]
 ## ASG Launch template
 - similar to launch config
@@ -33,7 +33,7 @@ A Group of [[EC2]] Instances scaled horizontally, can use an [[ELB]] or work wit
 
 ### [[EC2]] Tenancy
 - dedicated before other configs
-- Take [[VPC]] tenancy config into account
+- Take [[docs/networks/VPC]] tenancy config into account
 
 ## Instance States
 
@@ -51,14 +51,14 @@ A Group of [[EC2]] Instances scaled horizontally, can use an [[ELB]] or work wit
 ## Scaling Policies
 
 ### Simple
-- scale by threshold values (CPU > 50%)
-- must wait for **scaling** and **health check** to complete to scale again
+- scale by threshold values (CPU > 50%).
+- must wait for **scaling** and **health check** to complete to scale again.
 
 ### Step
-- scale by **multiple threshold** values to different configs
+- scale by **multiple threshold** values to different configs.
 
 ### Scheduled
-- scale on **predefined** **time** **window**
+- scale on **predefined** **time** **window**.
 
 ### Target Tracking
 - scale to match the defined metric (e.g., 50% CPU)

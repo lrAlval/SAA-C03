@@ -2,12 +2,12 @@
 # Elastic Compute Cloud
 
 ## TLDR
-EC2 is a the combination of a virtual mashine and hardware capacity attached to that vm in AWS. It is one of the oldest services and well integrated into most other services.
+EC2 is a combination of a virtual machines and hardware capacity attached to that VM in AWS. It is one of the oldest services and well integrated into most other services.
 
 ## Virtual Machines (EC2)
 
 ### Configuration Options
-- OS (Win, Linux, MacOs)
+- OS (Win, Linux, MacOS)
 - CPU
 - RAM
 - Network attached storage ([[EBS]] & [[EFS]])
@@ -226,7 +226,7 @@ Placement strategy for a group ec2 instances
 
 ### Spread
 - **Multi** **AZ** 
-- **Diffrent** **hardware**
+- **Different** **hardware**
 - Limited to **7** **instances** per **AZ**  **per placement group**
 - Use for **critical** apps and [[docs/essentials/Resilience concepts#High Availability (HA) **🏷️**|High Availability]]
 
@@ -253,6 +253,7 @@ Placement strategy for a group ec2 instances
 ### Partition
 - **Multi** **AZ**.
 - **Multi rack** but **same rack** **per partition**
+- Up to **7** partitions per **AZ**.
 - spread instances across many **partitions** within an **AZ**
 	- each partition uses a different set of **racks**.
 - scale to 100 EC2 instances per group (Hadoop, Cassandra , Kafka).

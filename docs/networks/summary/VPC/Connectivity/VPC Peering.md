@@ -1,0 +1,4 @@
+- Allow connectivity between two VPCs 1-1.
+- Transitive Peering does not work.
+- Works among different regions and different accounts.
+- Requires non-overlapping CIDR blocks (event if they belong to diff accounts)

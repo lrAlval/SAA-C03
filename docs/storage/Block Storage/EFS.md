@@ -9,7 +9,7 @@ High performance network file system which is pay per gb use and can attach to m
 - high avalilable, scalable and **expensive** ( 3x gp2)
 - pay per use
 - uses [[SecurityGroup]]
-- private service, via mount targets inside a [[VPC]]
+- private service, via mount targets inside a [[docs/networks/VPC]]
 - can be accessed from on-premises - [[VPN]] or DX
 - General Purpose and Max I/O performance Modes
 

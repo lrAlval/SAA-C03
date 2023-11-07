@@ -28,25 +28,25 @@ Supported DBs:
 - Storage backed by [[EBS]] (GP2,io1)
 
 ## Read replicas
-- up to **15** read replicas
-- Within **AZ**, Cross **AZ** or cross **Region**
-- replication is **Async** so reads are **eventually** **consistent**.
-- Can be promoted to their **own database**
+- Up to **15** read replicas.
+- Within **AZ**, Cross **AZ** or cross **Region**.
+- Replication is **Async** so reads are **eventually** **consistent**.
+- Can be promoted to their **own database**.
 - Apps must update connection string to leverage **read replicas**.
 - No network cost for **cross AZ** in the same **region**.
 - **Cross region** **cost per** network traffic.
 - Can be **multi AZ** (helpful for **[[docs/essentials/Resilience concepts#Disaster Recovery (DR) ☠️|DR]]**)
 ![[Pasted image 20230523161209.png]]
 
-## RDS Multi AZ (failover) (Disaster Recovery at az)[[docs/essentials/Resilience concepts#Disaster Recovery (DR) ☠️|DR]] 
-- **__SYNC replication__**
-- can be upgraded **without** **downtime** (from Single **AZ** to **Multi-AZ**)
-- the read replicas can also be setup as **multi AZ** for DR
+## RDS Multi AZ (failover) (Disaster Recovery at AZ)[[docs/essentials/Resilience concepts#Disaster Recovery (DR) ☠️|DR]] 
+- **__SYNC replication__**.
+- Can be upgraded **without** **downtime** (from Single **AZ** to **Multi-AZ**).
+- The read replicas can also be setup as **multi AZ** for DR.
 - **one** **DNS** name
 - **automatic** **failover** to **standby** database by switching target IP of DNS name
-- one Db. will be standby
-- deactivate automation mode and take snapshot before modify
-- **automated** **backups** will be multi region
+- one Db. will be standby.
+- Deactivate automation mode and take snapshot before modify.
+- **Automated** **backups** will be multi region.
 
 ![[Pasted image 20230523161750.png]]
 
@@ -110,7 +110,7 @@ Supported DBs:
 - **serverless**, autos calling, **high available** (multi AZ)
 - reduces **RDS** and aurora **failover** time by **66%**
 - enforces IAM auth for db and store creeds in AWS secrets manager
-- RDS Proxy is never public and can only be used from **within** the [[VPC]]
+- RDS Proxy is never public and can only be used from **within** the [[docs/networks/VPC]]
 
 ## Enhanced Monitoring
 [[CloudWatch]] feature for RDS

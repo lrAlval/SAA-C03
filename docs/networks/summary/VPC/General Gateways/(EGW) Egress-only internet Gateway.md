@@ -1,0 +1,3 @@
+- Allows **outbound-only** (from inside the instances to the internet)
+- **prevents** the ***Internet*** from initiating an ***IPv6 connection***.
+- **outbound traffic** **IPv6** only.

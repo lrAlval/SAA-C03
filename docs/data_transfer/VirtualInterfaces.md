@@ -1,6 +1,6 @@
 ![[Pasted image 20221031105916.png]]
 ## TLDR
-These Interfaces are used to route traffic into your [[VPC]] inside of AWS.
+These Interfaces are used to route traffic into your [[docs/networks/VPC]] inside of AWS.
 
 ## Versions
 
@@ -10,7 +10,7 @@ These Interfaces are used to route traffic into your [[VPC]] inside of AWS.
 
 ### Private virtual Interface
 - connect to private vpc ressources
-- scope is [[VPC]]
+- scope is [[docs/networks/VPC]]
 - private ip
 
 ### Transit virtual Interface

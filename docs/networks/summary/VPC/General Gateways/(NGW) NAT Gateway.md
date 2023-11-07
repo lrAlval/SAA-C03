@@ -1,0 +1,2 @@
+- must be in public subnet
+- optional, just required for private subnets

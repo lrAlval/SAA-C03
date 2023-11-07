@@ -3,10 +3,10 @@
 
 ![[Pasted image 20221101170746.png]]
 ## TLDR
-**UDP** compatible global endpoint to speed up network **traffic** to your [[VPC]] by using edge locations and **AWS** private network.
+**UDP** compatible global endpoint to speed up network **traffic** to your [[docs/networks/VPC]] by using edge locations and **AWS** private network.
 
 ## Use case
-- reduce network-hops for **worldwide users**
+- reduce network-hops for **worldwide users**.
 - improve global network performance by offering entry point on to the global AWS transit network as close to customers as possible using Any cast IP addresses.
 
 ## Features

@@ -62,7 +62,7 @@ Central service for all logs and metrics in AWS.
 - [[ElasticBeanstalk]], collection of logs from application.
 - [[ECS]] collection from containers.
 - AWS [[Lambda]] collection from function logs.
-- [[VPC]] flow logs.
+- [[docs/networks/VPC]] flow logs.
 - [[APIGateway]].
 - [[CloudTrail]] based on filter.
 - [[Route53]] DNS requests.

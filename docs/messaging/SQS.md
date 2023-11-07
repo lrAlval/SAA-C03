@@ -2,24 +2,25 @@
 # Simple Queue Service
 
 ## TLDR
->AWS standard queue service. Has ton of features like **FIFO** and **multi** **consumer**. Scales indefinitely.
+>AWS standard queue service. Has ton of features like **FIFO** and **multi** **consumer**. Scales **indefinitely**.
 
 ## Features
-- AWB managed
-- async systems
-- decouple
-- message delay up to 15 min
-- unlimited **throughput** 
-- unlimited number of messages
-- default retention **4** days, max **14** days
-- max size **256kbs**
-- dynamically add **concurrency**/ read **throughput**
-- track ACK/Fail 
-- set visibility timeout for ACK/Fail
-- scale transparently
-- buffer **requests**
-- can have out of **order** messages (  best effort ordering)
-- can have **duplicate** messages
+- AWB managed.
+- Async systems.
+- Decouple.
+- Message delay up to 15 min.
+- unlimited **throughput**.
+- Unlimited number of messages.
+- Default retention **4** days, max **14** days.
+- Max size **256kbs**.
+- Dynamically add **concurrency**/ read **throughput**.
+- Track ACK/Fail.
+- Set visibility **timeout** for **ACK**/Fail.
+- Scale transparently.
+- Buffer **requests**.
+- Can have out of **order** messages 
+	-  best effort ordering.
+- Can have **duplicate** messages.
 	-  [[docs/essentials/Message Delivery Reliability#**At-least-once semantics**|At east once]] Delivery
 
 ## Message Delivery Reliability
@@ -70,9 +71,9 @@
 - other services **without** [[IAM]] role
 
 ## Visibility Timeout
-- default 30 sec, min 0 sec , max 12 hours
-- after polled msg becomes invisible
-- message visibility timeout window is 30 seconds.
+- default 30 sec, min 0 sec, max **12** hours
+- after polled msg becomes **invisible**.
+- Message visibility timeout window is 30 seconds.
 	- Can use **ChangeMessageVisibility** API to increase time.
 - Set to process time to stop being processed twice.
 - If process time takes longer can use **SQS** API to increase visibility timeout for this message.

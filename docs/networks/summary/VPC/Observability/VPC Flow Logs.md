@@ -1,0 +1,3 @@
+- Capture IP Traffic information that flows.
+- ENI Level for **ACCEPT** and **REJECT** traffic.
+-  Helps to identify attacks, **analyze** using [[Amazon Athena]] or [[CloudWatch]].

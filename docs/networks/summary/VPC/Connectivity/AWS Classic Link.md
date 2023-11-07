@@ -1,0 +1,2 @@
+- Allows you to link an **EC2-Classic** instance to a **VPC** in your account, within the same **region**. 
+- This allows you to associate the **VPC** security groups with the EC2-Classic instance, enabling communication between your EC2-Classic instance and instances in your VPC using private IPv4 addresses.

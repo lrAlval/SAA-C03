@@ -13,6 +13,8 @@
 
 ### Fault-Tolerance (FT) 💰
 
+^6c176e
+
 -   **Goal**: 
 	- **Work** _**through failure**_ of some its **components** 🩹  
 	- ****************************minimize outages**************************** ⚡.

@@ -9,13 +9,13 @@ This is a service to manage multiple accounts and big user count at a central pl
 - **Global** service
 - **Manage** multiple accounts
 - There is one main account which is the root, the other accounts  join the [[AWS Organizations]] of the root account as member accounts
-- Shared resources possible (See [[VPC]])
+- Shared resources possible (See [[docs/networks/VPC]])
 - You can leverage the API to quickly create new AWS accounts
 - Can use a central [[S3]] account for logs
 - **Central audit account**
 
 ## Advantages
-- Multi account vs. one account multi [[VPC]].
+- Multi account vs. one account multi [[docs/networks/VPC]].
 - Use ***tagging*** standards for billing purposes.
 - Enable [[CloudTrail]] on all accounts, send logs to central [[S3]] account.
 - Send [[CloudWatch]] Logs to central logging account.

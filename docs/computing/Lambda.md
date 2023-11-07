@@ -20,9 +20,9 @@
 - Pay per compute time
 - scaling is automated
 - No charge if not running
-- Operates from AWS owned [[VPC]]
+- Operates from AWS owned [[docs/networks/VPC]]
 - By default **only public traffic**.
-- You can enable function [[VPC]] access if you need private resources from your [[VPC]]
+- You can enable function [[docs/networks/VPC]] access if you need private resources from your [[docs/networks/VPC]]
 - Scale up based on request amount
 - Can set custom function timeout
 - Can be packaged and deployed as container images
@@ -38,7 +38,7 @@
 
 ## Drawbacks
 - Limited by time ***SHORT EXECUTIONS***
-- if you need both private and public resources, you will have to enable [[VPC]] access and use a  [[NAT]]  gateway to access the internet
+- if you need both private and public resources, you will have to enable [[docs/networks/VPC]] access and use a  [[NAT]]  gateway to access the internet
 
 ## Use cases
 - Serverless applications ([[S3]], [[APIGateway]], Lambda)

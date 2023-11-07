@@ -15,7 +15,7 @@
 - Goal: simplify setting and managing **shared file storage** in cloud env.
 - Main purpose is mounting 100 of Linux ec2s across **AZ's** 
 - **more expensive** than EBS
-- EFS share websites files (WordPress)
+- **EFS** share websites files (WordPress)
 - can leverage **EFS-IA** for cost savings.
 ![[Pasted image 20230521231243.png]]
 ## Instance Store

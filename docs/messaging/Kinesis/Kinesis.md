@@ -54,7 +54,7 @@
 - **HTTPs in flight**
 - [[IAM]] for access
 - can also use client side encryption
-- [[VPC]] endpoint for access from [[VPC]]
+- [[docs/networks/VPC]] endpoint for access from [[docs/networks/VPC]]
 - monitor with [[CloudTrail]]
 
 ### Producers

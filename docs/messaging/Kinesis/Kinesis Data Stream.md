@@ -69,7 +69,7 @@
 - Encryption **in-flight** **HTTPs**
 - can also use **client side** encryption.
 - Control access / authorization using [[IAM]] policies
-- [[VPC]] endpoint for access from [[VPC]]
+- [[docs/networks/VPC]] endpoint for access from [[docs/networks/VPC]]
 - Monitor API calls using [[CloudTrail]]
 
 ### Modes

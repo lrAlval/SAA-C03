@@ -1,0 +1,7 @@
+- Endpoints for AWS used for caching content and used as CDN
+- Requests going to either one of these services will be routed to the nearest edge location automatically.
+- Placed outside regions
+- for 
+	- [[Route53]]
+	- [[AWS CloudFront]]
+	- Lambda@Edge

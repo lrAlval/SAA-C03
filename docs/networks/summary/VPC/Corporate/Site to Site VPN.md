@@ -1,0 +1,6 @@
+- By **default** instances inside a VPC can't communicate with your own remote network.
+- supports Interne Protocol Security (IPsec) VPN connections.
+- Requires:
+	- **Customer Gateway Device** (physical or software)
+	- Client Side of the VPN (your network / office / data-center )
+	- (VPG)Virtual Private Gateway on the AWS side attached to the **VPC**.

@@ -13,7 +13,7 @@
 - Data is backed-up daily to **S3**.
 - Can be accessed from your **on-premises** infrastructure:
 	- [[VPN]], 
-	- [[DirectConnect]]
+	- [[DirectConnect (DX)]]
 
 
 ## Longer Version
@@ -21,17 +21,17 @@
 - designed for **integration** with **Windows environments.**
     - **Native** Windows file system, **not emulated server**
 - Integrates with Directory Service or Self-Managed **AD**
-- Can be used in **Single** or **Multi-AZ** within a [[VPC]].
+- Can be used in **Single** or **Multi-AZ** within a [[docs/networks/VPC]].
     - This controls the **network** interfaces that are **available**.
     - **Single mode** use replication in the **AZ** to ensure **resiliency**.
 - Can perform **full range** of **different backups**
     - **Client side** and **AWS side**
     - Can perform **automatic** and **on-demand** **backups**.
 - File systems can be access using:
-	- [[VPC]], 
+	- [[docs/networks/VPC]], 
 	- Peering
 	- [[VPN]], 
-	- [[DirectConnect]]
+	- [[DirectConnect (DX)]]
 	- Native windows **FS** or **Directory** Services.
 
 #### Words to look for

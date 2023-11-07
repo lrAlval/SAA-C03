@@ -1,0 +1,5 @@
+- Essentially ENIS (Elastic Network Interfaces)
+- Supports most AWS **services**
+- Uses AWS **PrivateLink**.
+- $ per hour + $ per GB of data **processed**.
+- Allow private and secure connection **between VPCs**, on-prem apps and AWS services

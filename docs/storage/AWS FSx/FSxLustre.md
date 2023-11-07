@@ -9,7 +9,7 @@
 	
 ## Access
 - [[VPN]]
-- [[DirectConnect]]
+- [[DirectConnect (DX)]]
 
 ## Performance
 - Scales up to 100s GB/s, millions of **IOPS**, **sub-ms** latencies

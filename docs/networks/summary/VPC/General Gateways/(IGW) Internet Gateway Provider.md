@@ -1,0 +1,1 @@
+- At **VPC** level provides connection to public internet, provide IPv4 & IPv6 **Internet** **Access**.

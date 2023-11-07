@@ -100,3 +100,13 @@ Each address is 128 bits long. They are addressed by the start of the network an
 - **Multicast** is for ***one-to-many*** communication, where a message is sent to a selected ***group of recipients*** who have expressed interest in receiving it.
 - **Broadcast** is for ***one-to-all*** communication, where a message is sent to all devices on a network, regardless of their interest.
 - **Anycast** is for ***one-to-nearest*** communication, where a message is sent to the ***closest available receiver*** among a group of potential receivers.
+
+## Distribution Models
+- **Point-to-point**:
+	- point to point networks are used to connect two locations together via private, dedicated line.
+- **Hub and Spoke**: 
+	- **not direct** communication among **different points**
+	- instead everything has to go to a **central** **hub** and is then forwarded to the other **_spoke_**.
+	- Cons:
+		- but it has a **single point of failure** (**SPF**), if the hub fails, everything **fails**
+		- in hub **congestion**, which can create **bottlenecks**.

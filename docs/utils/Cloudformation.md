@@ -2,7 +2,7 @@
 # Cloudformation
 
 ## TLDR
-Templates to create [[VPC]]. Allows to create Infrastructre as Code.
+Templates to create [[docs/networks/VPC]]. Allows to create Infrastructre as Code.
 
 ## Features
 - IaC

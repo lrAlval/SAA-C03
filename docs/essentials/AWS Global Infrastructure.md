@@ -3,11 +3,11 @@
 - A region is a geographical area.
 - Each region consists of 3 or more availability zones.
 - Each Amazon Region is designed to be completely isolated from the other Amazon Regions.
-- Each AWS Region has multiple Availability Zones and data centers.
+- Each AWS Region has multiple **Availability Zones** and data centers.
 - You can replicate data within a region and between regions using private or public Internet connections.
 - You retain complete control and ownership over the region in which your data is physically located, making it easy to meet regional compliance and data residency requirements.
 - Note that there is a charge for data transfer between regions.
-- When you launch an EC2 instance, you must select an AMI that’s in the same region. If the AMI is in another region, you can copy the AMI to the region you’re using.
+- When you launch an **EC2** instance, you must select an AMI that’s in the same region. If the **AMI** is in another region, you can copy the AMI to the region you’re using.
 
 
 ## Availability Zones

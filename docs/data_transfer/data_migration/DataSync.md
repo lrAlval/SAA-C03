@@ -79,7 +79,7 @@
 
 
 ## Route
-- On premise File System → On premise Data Sync Agent → AWS [[DirectConnect]] or Internet → AWS [[DataSync]] service → Cloud storage 
+- On premise File System → On premise Data Sync Agent → AWS [[DirectConnect (DX)]] or Internet → AWS [[DataSync]] service → Cloud storage 
 
 
 #### Data Sync Components

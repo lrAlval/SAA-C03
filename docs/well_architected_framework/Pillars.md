@@ -41,7 +41,7 @@
 - logs and monitoring
 
 ### Security at all layers
-- [[VPC]]
+- [[docs/networks/VPC]]
 - Network
 - [[EC2]]
 - application
