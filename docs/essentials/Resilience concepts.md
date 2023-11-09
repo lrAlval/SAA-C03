@@ -23,7 +23,7 @@
 -   _**Outages** must be **minimized** and the **system needs** levels of **redundancy**_.
 -   **Mission** or **life critical** situations 🔫
 -   **operate** through **disaster.**
--   **e.g. Resilent systems on large planes**
+-   **e.g. Resilient systems on large planes**
     -   (like extra **engines** than it needs to so it can operate **through  failure**)
 
 ### Disaster Recovery (DR) ☠️

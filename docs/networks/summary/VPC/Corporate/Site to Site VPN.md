@@ -2,5 +2,6 @@
 - supports Interne Protocol Security (IPsec) VPN connections.
 - Requires:
 	- **Customer Gateway Device** (physical or software)
+		- for HA needs to have multiple devices
 	- Client Side of the VPN (your network / office / data-center )
 	- (VPG)Virtual Private Gateway on the AWS side attached to the **VPC**.

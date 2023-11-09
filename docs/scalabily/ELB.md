@@ -103,6 +103,7 @@ AWS family of load balancers. Is used to spread and control traffic to a vertica
 
 ## Sticky Session
 - by default, requests are spread.
+- Can cause unpredictable behavior when traffic pattern shifts very quickly.
 - Can be enabled for [[ELB]] CLB and ALB.
 - Controlled via **cookie** set by the [[ELB]].
 - Might bring imbalance to the nodes.

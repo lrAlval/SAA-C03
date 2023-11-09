@@ -1,14 +1,14 @@
-# AWS Certifacte Manager
+# AWS Certificate Manager
 
-- used for SSL TLS certificate managedment provision and deploy
-- provide inslight encryption
+- used for SSL TLS certificate managements provision and deploy
+- provide in-flight encryption
 - public and private certs
 - automatic renewal
 - cannot be used on ec2
 - will take a few hours to be verified
-- can imported but no automatic renewal
-- certifactes for cloudfront must be in us-east-1
-- for api gateway region needs to be created in same region
+- can be imported but no automatic renewal
+- certificates for CloudFront must be in us-east-1
+- for **API** gateway region needs to be created in same region
 
 ## Integrations
 - [[ELB]]
@@ -19,7 +19,7 @@
 - FQDN
 - Wildcard
 
-### Valiation Method
+### Validation Method
 - DNS
 - Email
 

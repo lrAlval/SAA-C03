@@ -1,3 +1,6 @@
+- physical coonection between datacenter and AWS
+- Consistent network performance and throughput.
+- for HA use multiple DX Locations or use a backup VPC over the internet.
 -  Uses **AWS backbone** network connections into the AWS Cloud and is high-bandwidth and low-latency.
 - **cost-effective if** transferring large volumes of data from your data center to AWS.
 - IN Transit NOT Encrypted by default.(can be enabled with IPSec site 2 site vpn over a **VIF**)

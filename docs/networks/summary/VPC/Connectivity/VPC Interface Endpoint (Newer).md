@@ -1,0 +1,10 @@
+- Essentially, ENIS (Elastic Network Interfaces
+- Privately interact with many AWS Services (same-region)
+- also referred as Private Link
+- Sits at subnet level.
+- for **HA** needs one in each AZ.
+- In order to use it, needs to be enabled private DNs in the VPC
+- Supports most AWS **services**
+- Uses AWS **PrivateLink**.
+- $ per hour + $ per GB of data **processed**.
+- Allow private and secure connection **between VPCs**, on-prem apps and AWS services
