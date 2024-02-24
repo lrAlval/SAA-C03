@@ -1,2 +1,0 @@
-- Range of IP addresses in the VPC
-- No Direct access to the internet
